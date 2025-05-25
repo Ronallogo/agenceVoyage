@@ -2,12 +2,13 @@
 export interface  Voyage{
 
   idVoyage : number ,
-  libelleVoyage : string ,
+  departVoyage : string ,
+  arriveVoyage : string ,
   dateVoyage : string ,
 }
 
 
-export interface Client{
+export interface Client_2{
   idClient : string,
   nomClient : string ,
   prenomClient : string ,
@@ -15,8 +16,6 @@ export interface Client{
   mailClient : string
   sexeClient : string ,
   telClient : string ,
-  login : string ,
-  password : string ,
 
 
 }
@@ -24,14 +23,23 @@ export interface Client{
 export interface Reservation_1{
   idReservation : number ,
   dateReservation : string ,
-  client : Client ,
+  client : Client_2 ,
   voyage : Voyage ,
 }
 
 
 export interface  TypeBillet{
-  idTypeBillet : number |null ,
+  idTypeBillet : number  ,
   libelleTypeBillet : string ,
   prixTypeBillet:  number ,
 
+}
+
+
+export interface VIEW  {
+
+  name : string , 
+  isSelected : boolean ; 
+ 
+  
 }
