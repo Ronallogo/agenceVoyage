@@ -35,7 +35,7 @@ export class ApplicationService {
     return this.http.put( this.BaseUrl+"voyage/update/"+voyage.idVoyage , voyage) ; 
   }
 
-  delete(idVoyage : number):Observable<any>{
+  deleteVoyage(idVoyage : number):Observable<any>{
       return this.http.delete(this.BaseUrl+"voyage/delete/"+idVoyage);
   }
 
@@ -56,9 +56,25 @@ export class ApplicationService {
       return this.http.get(this.BaseUrl+"client/getAll")
   }
 
-  updateClient(client : Client_2):Observable<any>{
-      return this.http.put(this.BaseUrl+"client/update/"+client.idClient , client)
+  updateClient(client :   Client_2):Observable<any>{
+    return this.http.put(this.BaseUrl+"client/update/"+client.idClient , client)
   }
 
+  deleteClient(idClient : number):Observable<any>{
+      return this.http.delete(this.BaseUrl+"client/delete/"+idClient);
+  }
+
+
+  refresh():Observable<any>{
+    return this.http.get(this.BaseUrl+"client/refresh") ; 
+  }
+
+  search(t : any):Observable<any>{
+    return  this.http.put(this.BaseUrl+"client/search" , t) ; 
+  }
+
+
+
+  /*______________________________________________________________  */
 
 }

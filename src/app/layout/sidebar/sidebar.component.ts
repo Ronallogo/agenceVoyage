@@ -23,7 +23,7 @@ export class SidebarComponent {
      {name : "client" ,isSelected : false } , // 2 
      {name : "reservation" ,isSelected : false } , // 3 
      {name : "billet" ,isSelected : false } , // 4 
-     {name : "historique" ,isSelected : false } , // 5 
+     {name : "paiement" ,isSelected : false } , // 5 
      {name : "logout" , isSelected : true } , // 6
 
 

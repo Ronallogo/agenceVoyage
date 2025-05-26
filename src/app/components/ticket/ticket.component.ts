@@ -5,14 +5,15 @@ import {NgClass} from "@angular/common";
 import {NgxPaginationModule} from "ngx-pagination";
 import {TypeBillet} from "../../../model/interfaces";
 import {tick} from "@angular/core/testing";
-import {FormsModule} from "@angular/forms";
+import {FormControl, FormControlDirective, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-ticket',
   imports: [
     NgClass,
     NgxPaginationModule,
-    FormsModule
+    FormsModule , 
+    ReactiveFormsModule
   ],
   templateUrl: './ticket.component.html',
   standalone: true,
@@ -20,13 +21,18 @@ import {FormsModule} from "@angular/forms";
 })
 export class TicketComponent  implements OnInit{
 
-   protected tickets  : TypeBillet[] = TICKETS ;
+  protected tickets  : TypeBillet[] = TICKETS ;
 
-   protected libelle : string = "";
+  protected libelle : string = "";
+
+  protected formTicket = new FormGroup({
+      libelleTypeBillet : new FormControl("" , [Validators.required , Validators.maxLength(3)]) , 
+      prixTypeBillet : new FormControl("" , [Validators.required , Validators.min(25)])
+  });
 
 
 
-  protected entete : string[] = ["No", "libelle du type de billet" , "Prix" , "Actions"];
+  protected entete : string[] = ["No", "libelle " , "Prix" , "Actions"];
   protected prix:  number=  0 ;
 
 

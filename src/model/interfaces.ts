@@ -9,7 +9,7 @@ export interface  Voyage{
 
 
 export interface Client_2{
-  idClient : string,
+  idClient :  number,
   nomClient : string ,
   prenomClient : string ,
   dateNaiss : string ,

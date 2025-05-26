@@ -151,7 +151,7 @@ export class VoyageComponent  implements  OnInit{
   async deleteVoyage(id : number){
     let reponse = await     _makeSure("voulez-vous supprimer ce voyage??")   ; 
     if(!reponse) return ; 
-      this.service.delete(id).subscribe(data=>{
+      this.service.deleteVoyage(id).subscribe(data=>{
           _confirmation("voyage supprimer avec succès") ;
           this.listVoyageFunction(); 
       },err=>{
