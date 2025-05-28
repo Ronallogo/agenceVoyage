@@ -20,11 +20,13 @@ export class SidebarComponent {
    protected VIEWS :   VIEW[] = [
      {name : "dashboard" ,isSelected : false } , // 0 
      {name : "voyage" ,isSelected : false } ,  // 1 
-     {name : "client" ,isSelected : false } , // 2 
-     {name : "reservation" ,isSelected : false } , // 3 
-     {name : "billet" ,isSelected : false } , // 4 
-     {name : "paiement" ,isSelected : false } , // 5 
-     {name : "logout" , isSelected : true } , // 6
+     {name : "client" ,isSelected : false } ,//2
+     {name : "agent" , isSelected : false}  , // 3
+     {name : "reservation" ,isSelected : false } , // 4
+     {name : "billet" ,isSelected : false } , // 5
+     {name : "paiement" ,isSelected : false } , // 6
+     {name : "logout" , isSelected : true } , // 7
+     
 
 
   ] ; 

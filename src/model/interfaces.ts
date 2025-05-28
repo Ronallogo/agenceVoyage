@@ -20,6 +20,23 @@ export interface Client_2{
 
 }
 
+export interface Agent_1{
+  idAgent : number , 
+  nomAgent : string , 
+  prenomAgent : string , 
+  dateNaiss : string , 
+  mailAgent  : string, 
+  sexeAgent : string , 
+  telAgent : string 
+
+}
+export interface Agent_2 extends Agent_1{
+  login : string , 
+  password : string 
+}
+
+
+
 export interface Reservation_1{
   idReservation : number ,
   dateReservation : string ,
@@ -28,7 +45,7 @@ export interface Reservation_1{
 }
 
 
-export interface  TypeBillet{
+export interface   Ticket{
   idTypeBillet : number  ,
   libelleTypeBillet : string ,
   prixTypeBillet:  number ,

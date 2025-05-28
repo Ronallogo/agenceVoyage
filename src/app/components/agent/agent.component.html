@@ -1,32 +1,51 @@
 
-
-
-
 <div style="margin-left: 20%; margin-top: 5%; width: 95%" class="animate__animated animate__fadeIn bg-fixed">
   <div class="grid grid-cols-1 space-y-14 p-4 border-2 w-full h-full border-gray-200 rounded-lg">
-    <div class="grid grid-cols-3 gap-6">
-      <!-- Card 1 -->
-      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-700">Croissance des revenus</h3>
-        <p class="text-3xl font-bold text-blue-600">+18%</p>
-        <p class="text-sm text-gray-500">Par rapport au mois précédent 📈</p>
-      </div>
+ 
+     
+    <div class="grid grid-cols-3 gap-6 p-6">
+  <!-- Carte : Croissance des revenus -->
+  <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+    <h3 class="text-lg font-semibold text-gray-700 flex items-center justify-center">
+      <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 12l6 6L20 6"/>
+      </svg>
+      Croissance des revenus
+    </h3>
+    <p class="text-4xl font-bold text-blue-600 mt-2">+18%</p>
+    <p class="text-sm text-gray-500">Par rapport au mois précédent 📈</p>
+  </div>
 
-      <!-- Card 2 -->
-      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-700">Clients actifs</h3>
-        <p class="text-3xl font-bold text-green-600">9,524</p>
-        <p class="text-sm text-gray-500">+3.5% en croissance 📊</p>
-      </div>
+  <!-- Carte : Clients actifs -->
+  <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+    <h3 class="text-lg font-semibold text-gray-700 flex items-center justify-center">
+      <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8"/>
+      </svg>
+      Clients actifs
+    </h3>
+    <p class="text-4xl font-bold text-green-600 mt-2">9,524</p>
+    <p class="text-sm text-gray-500">+3.5% en croissance 📊</p>
+  </div>
 
-      <!-- Card 3 -->
-      <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-700">Ventes réalisées</h3>
-        <p class="text-3xl font-bold text-red-600">5,729</p>
-        <p class="text-sm text-gray-500">+7% sur les dernières 24h 🔥</p>
-      </div>
-    </div>
-  <!--  <form class="  w-full p-9  space-y-14 bg-white mt-20  rounded-3xl drop-shadow-2xl shadow-gray-500 ">
+  <!-- Carte : Ventes réalisées -->
+  <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+    <h3 class="text-lg font-semibold text-gray-700 flex items-center justify-center">
+      <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21h6M15 3h6M9 7h6M21 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+      </svg>
+      Ventes réalisées
+    </h3>
+    <p class="text-4xl font-bold text-red-600 mt-2">5,729</p>
+    <p class="text-sm text-gray-500">+7% sur les dernières 24h 🔥</p>
+  </div>
+</div>
+    
+
+
+
+
+  <form class="  w-full p-9  space-y-14 bg-white mt-20  rounded-3xl drop-shadow-2xl shadow-gray-500 ">
       <div class="w-full flex justify-center mb-4 ">
         <span class="text-gray-600 text-xl font-semibold">FORMULAIRE D'ENREGISTREMENT</span>
       </div>
@@ -104,18 +123,18 @@
 
       </div>
 
-    </form>-->
+    </form>
 
 
 
 
     
   <div class=" h-20 bg-white drop-shadow-xl shadow-gray-400  rounded-2xl p-4 ">
-        <form [formGroup]="formClient" class=" grid grid-cols-6 gap-2 ">
+        <form [formGroup]="formAgentResarch" class=" grid grid-cols-6 gap-2 ">
        
             <input  style="width: 80%" type="text" name="nomClient" 
             placeholder="nom ou prénom"
-            formControlName="nomClient"
+            formControlName="nomAgent"
             aria-describedby="helper-text-explanation"  
             class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-1
             focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
@@ -123,7 +142,7 @@
 
             <input  style="width: 80%"   name="email" 
             type="email"
-            formControlName="mailClient"
+            formControlName="mailAgent"
             placeholder="email"
             aria-describedby="helper-text-explanation"  
             class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
@@ -135,7 +154,7 @@
                 
             <input  style="width: 75% " type="text" name="sexe" 
             maxlength="1" 
-            formControlName="sexeClient"
+            formControlName="sexeAgent"
             placeholder="M/F"
             aria-describedby="helper-text-explanation"  
             class="  w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
@@ -152,14 +171,14 @@
             focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
             
             <input  style="width: 75%" type="tel" name="phone" 
-            formControlName="telClient"
+            formControlName="telAgent"
             aria-describedby="helper-text-explanation"  
             placeholder="phone"
             class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
             focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
             
            <div class=" grid grid-cols-2 animate__animated animate__fadeIn gap-0">
-                  <div (click)="searchClient()" type="submit" class="bg-white  w-1/2 rounded-2xl justify-center  border-blue-700 border-2 
+                  <div (click)="searchAgent()" type="submit" class="bg-white  w-1/2 rounded-2xl justify-center  border-blue-700 border-2 
                     active:drop-shadow-2xl   
                    active:shadow-gray-500 active:border-[3px] active:ease-out active:transition-all  
                      
@@ -182,9 +201,8 @@
 
 
      <div class=" rounded-md drop-shadow-2xl shadow-gray-500   grid-cols-1 mt-12 gap-y-2">
-      @if (service.hide == "liste"){
         <table
-          [ngClass]="{'animate__animated animate__fadeIn': service.hide =='liste'}"
+          
           class=" rounded-xl   font-bold    h-full w-full text-left rtl:text-right text-gray-500">
           <thead class="    text-xl font-extrabold   text-white uppercase bg-gray-600">
           <tr>
@@ -195,7 +213,7 @@
           </tr>
           </thead>
           <tbody   >
-            @for(t of  clients  | paginate: {
+            @for(t of  agents  | paginate: {
               itemsPerPage: 5,
               currentPage: currentPage,
               totalItems:   clients.length};  track  t.idClient){
@@ -205,28 +223,28 @@
 
                  <td>
                     <input  style="width: 50%" type="text" name="nomClient" 
-                    [(ngModel)]="clientSelected.nomClient"   
+                    [(ngModel)]="agentSelected.nomClient"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
                  <td>
                     <input  style="width: 50%" type="text" name="prenom" 
-                    [(ngModel)]=" clientSelected.prenomClient" 
+                    [(ngModel)]=" agentSelected.prenomClient" 
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
                  <td>
                     <input  style="width: 80%" type="date" name="dateNaiss" 
-                    [(ngModel)]=" clientSelected.dateNaiss"   
+                    [(ngModel)]=" agentSelected.dateNaiss"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
                  <td>
                     <input  style="width: 80%" type="email" name="dateNaiss" 
-                    [(ngModel)]=" clientSelected.mailClient"   
+                    [(ngModel)]=" agentSelected.mailClient"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
@@ -235,26 +253,26 @@
                     <input  style="width: 80%" type="text" name="sexeClient" 
                     maxlength="1"
         
-                    [(ngModel)]="clientSelected.sexeClient"  
+                    [(ngModel)]="agentSelected.sexeClient"  
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
                  <td>
                     <input  style="width: 80%" type="text" name="dateNaiss" 
-                    [(ngModel)]=" clientSelected.telClient"   
+                    [(ngModel)]=" agentSelected.telClient"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
 
                 }@else {
-                  <td class="px-6 py-4">{{t.nomClient}}</td>
-                  <td class="px-6 py-4">{{t.prenomClient}}</td>
+                  <td class="px-6 py-4">{{t.nomAgent}}</td>
+                  <td class="px-6 py-4">{{t.prenomAgent}}</td>
                   <td class="px-6 py-4"> {{t.dateNaiss}}</td>
-                  <td class="px-6 py-4"> {{t.mailClient}}</td>
-                  <td class="px-6 py-4"> {{t.sexeClient}}</td>
-                  <td class="px-6 py-4"> {{t.telClient}}</td>
+                  <td class="px-6 py-4"> {{t.mailAgent}}</td>
+                  <td class="px-6 py-4"> {{t.sexeAgent}}</td>
+                  <td class="px-6 py-4"> {{t.telAgent}}</td>
                   
                 }
 
@@ -313,12 +331,12 @@
 
         }
 
-      }
-
-
 
 
     </div>
 
   </div>
 </div>
+
+
+

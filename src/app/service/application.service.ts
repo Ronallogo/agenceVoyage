@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Client_2, Voyage} from "../../model/interfaces";
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
-import { resourceUsage } from 'process';
+import {Client_2, Ticket, Voyage} from "../../model/interfaces";
+ 
 
 @Injectable({
   providedIn: 'root'
@@ -77,4 +76,40 @@ export class ApplicationService {
 
   /*______________________________________________________________  */
 
+  /**
+   * 
+   * @param ticket 
+   * @returns 
+   */
+  createTicket(ticket : any):Observable<any>{
+    return this.http.post(this.BaseUrl+"ticket/create" ,  ticket);
+
+  }
+  listTicket():Observable<any>{
+    return this.http.get(this.BaseUrl+"ticket/getAll");
+  }
+
+
+  deleteTicket(idTicket : number){
+    return this.http.delete(this.BaseUrl+"ticket/delete/"+idTicket);
+  }
+
+  updateTicket(Ticket : Ticket){
+    return this.http.put(this.BaseUrl+"ticket/update/"+Ticket.idTypeBillet , Ticket);
+  }
+  /*________________________________________________________*/
+
+
+  /*
+  
+     create(voyage : any){
+    return fetch(this.BaseUrl+"voyage/create" ,  {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(voyage)
+  })
+  */ 
+ 
 }
