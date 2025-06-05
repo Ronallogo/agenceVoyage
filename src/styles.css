@@ -83,6 +83,10 @@ body { margin: 0;
   background: rgba(255, 255, 255, 0.8); /* Changement au hover */
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 
 
 

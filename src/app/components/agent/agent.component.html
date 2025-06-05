@@ -1,11 +1,11 @@
 
 <div style="margin-left: 20%; margin-top: 5%; width: 95%" class="animate__animated animate__fadeIn bg-fixed">
   <div class="grid grid-cols-1 space-y-14 p-4 border-2 w-full h-full border-gray-200 rounded-lg">
- 
+
      
-    <div class="grid grid-cols-3 gap-6 p-6">
+    <div class="grid grid-cols-3 gap-6  ">
   <!-- Carte : Croissance des revenus -->
-  <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+  <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
     <h3 class="text-lg font-semibold text-gray-700 flex items-center justify-center">
       <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 12l6 6L20 6"/>
@@ -17,7 +17,7 @@
   </div>
 
   <!-- Carte : Clients actifs -->
-  <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+  <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
     <h3 class="text-lg font-semibold text-gray-700 flex items-center justify-center">
       <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="8"/>
@@ -29,7 +29,7 @@
   </div>
 
   <!-- Carte : Ventes réalisées -->
-  <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+  <div class="bg-white p-6 rounded-2xl drop-shadow-md shadow-gray-600 border border-gray-200 text-center">
     <h3 class="text-lg font-semibold text-gray-700 flex items-center justify-center">
       <svg class="w-5 h-5 mr-2 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h11M9 21h6M15 3h6M9 7h6M21 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
@@ -39,14 +39,14 @@
     <p class="text-4xl font-bold text-red-600 mt-2">5,729</p>
     <p class="text-sm text-gray-500">+7% sur les dernières 24h 🔥</p>
   </div>
-</div>
+    </div>
     
 
 
 
 
-  <form class="  w-full p-9  space-y-14 bg-white mt-20  rounded-3xl drop-shadow-2xl shadow-gray-500 ">
-      <div class="w-full flex justify-center mb-4 ">
+  <form   [formGroup]="formAgent" class="  w-full p-9  space-y-14 bg-white mt-20  rounded-3xl drop-shadow-2xl shadow-gray-500 ">
+      <div class="w-full flex justify-center mb-2 ">
         <span class="text-gray-600 text-xl font-semibold">FORMULAIRE D'ENREGISTREMENT</span>
       </div>
       <hr class="text-gray-400">
@@ -54,27 +54,78 @@
       <div class="grid md:grid-cols-3   md:gap-6">
         <div class="relative z-0 w-full   mb-5 group">
           <input
-            type="text"     id="nomClient" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none     focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="nomClient" class="peer-focus:font-medium absolute text-xl text-gray-800  font-semibold  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-            Nom
+            type="text" 
+              formControlName="nomAgent" 
+               id="nomAgent" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 
+            bg-transparent border-0 border-b-2 border-gray-300 appearance-none 
+            focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="nomAgent" class="peer-focus:font-medium absolute 
+          text-base text-gray-800  font-semibold  duration-300 transform 
+          -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+           rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   
+           peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+            peer-focus:scale-75 peer-focus:-translate-y-6">
+            Nom 
           </label>
+           @if(  formAgent.controls.nomAgent.invalid &&  formAgent.controls.nomAgent.dirty){
+            <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span>  invalide !!</span>
+            </div>}
+        
 
 
         </div>
+       
         <div class="relative z-0 w-full   mb-5 group">
           <input
-            type="text"     id="prenomClient" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none     focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="prenomClient" class="peer-focus:font-medium absolute text-xl text-gray-800  font-semibold  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-            prénomClient
+
+            type="text"
+            formControlName="prenomAgent"
+            id="prenomAgent" class="  
+           
+            font-extrabold    block py-2.5 
+            px-0 w-full text-lg text-gray-900 
+            bg-transparent border-0 border-b-2 border-gray-300 appearance-none   
+              focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="prenomClient" class="peer-focus:font-medium absolute 
+          text-base text-gray-800  font-semibold  duration-300 transform
+           -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 
+              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            prénom
           </label>
+           @if(  formAgent.controls.prenomAgent.invalid &&  formAgent.controls.prenomAgent.dirty){
+            <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span>  invalide !!</span>
+            </div>}
 
 
         </div>
 
         <div class="relative z-0 w-full   mb-5 group">
           <input
-            type="email"     id="mailClient" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none     focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="mailClient" class="peer-focus:font-medium absolute text-xl text-gray-800  font-semibold  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">  Mail du client</label>
+            type="email"  
+            id="mailClient" 
+            class="  font-extrabold   
+              block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent
+              border-0 border-b-2 border-gray-300 appearance-none 
+              focus:outline-none focus:ring-0 focus:border-blue-600 peer" formControlName="mailAgent" placeholder=" " required />
+          <label for="mailAgent" class="peer-focus:font-medium absolute 
+          text-base text-gray-800  font-semibold  duration-300 transform
+           -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                peer-focus:scale-75 peer-focus:-translate-y-6">  adresse mail
+              
+          </label>
+           @if(  formAgent.controls.mailAgent.invalid &&  formAgent.controls.mailAgent.dirty){
+            <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span>  invalide !!</span>
+            </div>}
+
 
 
         </div>
@@ -82,46 +133,191 @@
       </div>
 
 
-      <div class="grid md:grid-cols-2  md:gap-6">
+      <div class="grid md:grid-cols-3  md:gap-6">
 
         <div class="relative z-0 w-full   mb-5 group">
           <input
-            type="date"     id="dateNaiss" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none     focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="mailClient" class="peer-focus:font-medium absolute text-xl text-gray-800  font-semibold  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">  Date de naissance</label>
+            type="date"   
+            id="dateNaiss"
+            formControlName="dateNaiss"
+            class="  font-extrabold 
+               block py-2.5 px-0 w-full
+                text-lg text-gray-900 
+                bg-transparent border-0 border-b-2
+                 border-gray-300 appearance-none
+                focus:outline-none focus:ring-0
+                 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="mailClient" class="peer-focus:font-medium absolute 
+          text-xl text-gray-800  font-semibold  duration-300 transform
+           -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600  
+             peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75
+              peer-focus:-translate-y-6">  Date de naissance
+          
+          </label>
+           
+
 
 
         </div>
         <div class="relative z-0 w-full   mb-5 group">
 
           <input
-            type="tel"     id="telClient" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none     focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          <label for="mailClient" class="peer-focus:font-medium absolute text-xl text-gray-800  font-semibold  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numéro de téléphone</label>
+            type="tel"     
+            formControlName="telAgent"
+            id="telClient" class="  font-extrabold 
+               block py-2.5 px-0 w-full text-lg text-gray-900
+                bg-transparent border-0 border-b-2 border-gray-300 appearance-none 
+                    focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="mailClient" class="peer-focus:font-medium absolute text-base
+           text-gray-800  font-semibold  duration-300 transform -translate-y-6 
+           scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4
+            peer-focus:text-blue-600   peer-placeholder-shown:scale-100
+             peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numéro de téléphone
+          </label>
+           @if(  formAgent.controls.telAgent.invalid &&  formAgent.controls.telAgent.dirty){
+            <div  class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span>  invalide !!</span>
+            </div>}
 
 
         </div>
+        <div>
+            <div class="grid-cols-1 gap-2  p-6  justify-items-center">
+                <div class=" grid  grid-cols-2    h-full w-full   " >
+                    <div  class="grid grid-cols-2   font-semibold    " >
+                        <label for="homme"   class="text-base  font-semibold" > Homme</label>
+                        <input
+                        type="radio"
+                        formControlName="sexeAgent"
+                        value="M"   id="homme"   class=" ease-in-out transition-all  font-semibold"   id="homme"    />
+                    </div>
+                   <div class="grid grid-cols-2   font-semibold gap-1 text-md">
+                    <label for="Femme" class="text-base  font-semibold">Femme</label>
+                        <input
+                            type="radio"  id="femme"
+                            formControlName="sexeAgent"
+                             value="F"  class=" ease-in-out transition-all  font-semibold"  id="Femme"   />      
+                   </div>
+                 
+                </div>
+              
+             
+        
+             </div>    
+        </div>
 
 
+
+
+       
       </div>
 
-
-      <div class="grid-cols-1 gap-4 space-x-4">
-        <div class=" grid  grid-cols-2" >
-          <div class="relative z-0    ">
-            <label for="homme" class="text-bl"> Homme</label>
-            <input
-              type="radio" value="M"     id="homme" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none     focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-          </div>
-          <label for="Femme" >Femme</label>
+        <div class="grid md:grid-cols-3   md:gap-6">
+        <div class="relative z-0 w-full   mb-5 group">
           <input
-            type="radio"   value="F"   id="Femme"   placeholder=" " required />
+            type="text" 
+              formControlName="login" 
+               id="login" class="  font-extrabold    block py-2.5 px-0 w-full text-lg text-gray-900 
+            bg-transparent border-0 border-b-2 border-gray-300 appearance-none 
+            focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="nomAgent" class="peer-focus:font-medium absolute 
+          text-base text-gray-800  font-semibold  duration-300 transform 
+          -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+           rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600   
+           peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+            peer-focus:scale-75 peer-focus:-translate-y-6">
+            login 
+          </label>
+           @if(  formAgent.controls.login.invalid &&  formAgent.controls.login.dirty){
+            <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span>longueur  invalide !!</span>
+            </div>}
+        
+
+
         </div>
-          <div class="relative z-0"  >
+       
+        <div class="relative z-0 w-full   mb-5 group">
+          <input
+
+            type="password"
+            formControlName="password"
+            id="password"class="  
+           
+            font-extrabold    block py-2.5 
+            px-0 w-full text-lg text-gray-900 
+            bg-transparent border-0 border-b-2 border-gray-300 appearance-none   
+              focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          <label for="prenomClient" class="peer-focus:font-medium absolute 
+          text-base text-gray-800  font-semibold  duration-300 transform
+           -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 
+              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            mot de passe
+          </label>
+           @if(  formAgent.controls.password.invalid &&  formAgent.controls.password.dirty ){
+            <div  class="  animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class=" text-base mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span  > faible mot de passe  !!   </span>
+            </div>}
+            @if(formAgent.controls.password.dirty && validatorPassword(formAgent.getRawValue().password) == 2 ){
+                <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-yellow-700">
+                  <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F9DB78"><path d="M479.79-288q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5ZM444-432h72v-240h-72v240Zm36.28 336Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Zm0-312Z"/>
+                  </svg>
+                  <span>  mot de passe léger !!</span>
+                </div>
+            }
+            @if(formAgent.controls.password.dirty && validatorPassword(formAgent.getRawValue().password) == 1){
+                <div  class=" w-full   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1 " width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                  <span class="text-sm"> Le mot de passe devra avoir au moins une majuscule et des chiffres !!</span>
+                </div>
+            }
+
 
         </div>
 
-        <button type="submit"   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enregistrer</button>
+        <div class="relative z-0 w-full   mb-5 group">
+          <input
+            type="password"  
+            id="confirmPassword" 
+            class="  font-extrabold   
+              block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent
+              border-0 border-b-2 border-gray-300 appearance-none 
+              focus:outline-none focus:ring-0 focus:border-blue-600 peer" formControlName="confirmPassword"placeholder=" " required />
+          <label for="mailAgent" class="peer-focus:font-medium absolute 
+          text-base text-gray-800  font-semibold  duration-300 transform
+           -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                peer-focus:scale-75 peer-focus:-translate-y-6">  confimation du mot de passe
+              
+          </label>
+           @if(!samePassword()){
+            <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+              <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              <span>  les mot de passe ne sont pas identiques !!</span>
+            </div>}
+             
+        </div>
+         <button
+          [ngClass]="{
+          'bg-gray-700 transition-all duration-700 ease-in-out' : checkForm(),
+          'transition-all duration-700 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' : !checkForm()
+               }"
+          type="submit"
+          [disabled]="checkForm()"
+          (click)="createAgent()"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+         dark:focus:ring-blue-800">Enregistrer</button>
+
 
       </div>
+       
+
+    
 
     </form>
 
@@ -216,21 +412,21 @@
             @for(t of  agents  | paginate: {
               itemsPerPage: 5,
               currentPage: currentPage,
-              totalItems:   clients.length};  track  t.idClient){
+              totalItems:    agents.length};  track  t.idAgent){
               <tr  (click)="indexLocationFunction(t)"  class=" animate__animated animate__fadeIn odd:bg-white bg-gray-50  border-b">
-                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">{{t.idClient}}</th>
-                 @if(onUpdating && indexedLocation == t.idClient){
+                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">{{t.idAgent}}</th>
+                 @if(onUpdating && indexedLocation == t.idAgent){
 
                  <td>
                     <input  style="width: 50%" type="text" name="nomClient" 
-                    [(ngModel)]="agentSelected.nomClient"   
+                    [(ngModel)]="agentSelected.nomAgent"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
                  <td>
                     <input  style="width: 50%" type="text" name="prenom" 
-                    [(ngModel)]=" agentSelected.prenomClient" 
+                    [(ngModel)]=" agentSelected.prenomAgent" 
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
@@ -244,7 +440,7 @@
                  </td>
                  <td>
                     <input  style="width: 80%" type="email" name="dateNaiss" 
-                    [(ngModel)]=" agentSelected.mailClient"   
+                    [(ngModel)]=" agentSelected.mailAgent"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
@@ -253,14 +449,14 @@
                     <input  style="width: 80%" type="text" name="sexeClient" 
                     maxlength="1"
         
-                    [(ngModel)]="agentSelected.sexeClient"  
+                    [(ngModel)]="agentSelected.sexeAgent"  
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
                  </td>
                  <td>
                     <input  style="width: 80%" type="text" name="dateNaiss" 
-                    [(ngModel)]=" agentSelected.telClient"   
+                    [(ngModel)]=" agentSelected.telAgent"   
                     aria-describedby="helper-text-explanation"  
                     class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
@@ -277,7 +473,7 @@
                 }
 
                 <td class="px-6 py-2 grid  grid-cols-2 gap-3 ">
-                  @if(onUpdating && indexedLocation == t.idClient){
+                  @if(onUpdating && indexedLocation == t.idAgent){
                     <a (click)="cancelUpdate()" class="animate__animated animate__fadeIn  " >
                        <svg  width="30px" height="30px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 128C300.8 128 128 300.8 128 512s172.8 384 384 384 384-172.8 384-384S723.2 128 512 128z m0 85.333333c66.133333 0 128 23.466667 179.2 59.733334L273.066667 691.2C236.8 640 213.333333 578.133333 213.333333 512c0-164.266667 134.4-298.666667 298.666667-298.666667z m0 597.333334c-66.133333 0-128-23.466667-179.2-59.733334l418.133333-418.133333C787.2 384 810.666667 445.866667 810.666667 512c0 164.266667-134.4 298.666667-298.666667 298.666667z" fill="#D50000"></path></g>
                        </svg>
@@ -293,7 +489,7 @@
                     <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#56e667"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13.9445 14.1875L9.94446 10.1875M13.9445 14.1875L8.946 19.1859C8.28735 19.8446 7.48784 20.3646 6.56993 20.5229C5.64311 20.6828 4.49294 20.736 3.94444 20.1875C3.39595 19.639 3.44915 18.4888 3.609 17.562C3.76731 16.6441 4.28735 15.8446 4.946 15.1859L9.94446 10.1875M13.9445 14.1875C13.9445 14.1875 16.9444 11.1875 14.9444 9.1875C12.9444 7.1875 9.94446 10.1875 9.94446 10.1875M3.5 12C3.5 5.5 5.5 3.5 12 3.5C18.5 3.5 20.5 5.5 20.5 12C20.5 18.5 18.5 20.5 12 20.5" stroke="#248935" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
                     </svg>
                     </a>
-                    <a   (click)="deleteClient(t.idClient)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                    <a   (click)="deleteAgent(t.idAgent)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                      
                        <svg class="animate__animated animate__fadeIn  " width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 5H18M9 5V5C10.5769 3.16026 13.4231 3.16026 15 5V5M9 20H15C16.1046 20 17 19.1046 17 18V9C17 8.44772 16.5523 8 16 8H8C7.44772 8 7 8.44772 7 9V18C7 19.1046 7.89543 20 9 20Z" stroke="#ac0202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
                       </svg>
@@ -312,7 +508,7 @@
 
         </table>
         
-        @if( clients.length > 0){
+        @if(  agents.length > 0){
           <div class=" flex justify-center items-center w-full  ">
             <pagination-controls
               class="pagination-controls"

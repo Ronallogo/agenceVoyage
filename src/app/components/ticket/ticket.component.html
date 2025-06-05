@@ -57,16 +57,7 @@
 
 
       <div class="grid-cols-2 gap-4 space-x-4">
-         <button
-          [ngClass]="{
-          'bg-gray-700 transition-all duration-700 ease-in-out' : checkForm(),
-          'transition-all duration-700 ease-in-out bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' : !checkForm()
-      }"
-          type="submit"
-          [disabled]="checkForm()"
-          (click)="create()"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
-         dark:focus:ring-blue-800">Enregistrer</button>
-
+        
       </div>
 
     </form>

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {transformDate, VOYAGES} from "../../../model/data";
+ 
 import {ApplicationService} from "../../service/application.service";
 import {NgClass} from "@angular/common";
 import {NgxPaginationModule} from "ngx-pagination";
 import {Client_2} from "../../../model/interfaces";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import { _confirmation, _error, _makeSure } from '../../notification/notification';
+import { _confirmation, _error, _makeSure, _warning } from '../../notification/notification';
 import { error } from 'console';
 import { response } from 'express';
  
@@ -54,6 +54,10 @@ export class ClientComponent implements  OnInit{
 
 
   searchClient(){
+    if(this.formClient.getRawValue().dateNaiss ==  ""){
+        _warning("La saisie de la date est obligatoire !! 😑") ; 
+        return ; 
+      }
     
     this.service.search(this.formClient.getRawValue()).subscribe(data=>{
         this.clients = data ; 
@@ -116,6 +120,7 @@ export class ClientComponent implements  OnInit{
 
     this.service.updateClient(t).subscribe(data=>{
       _confirmation("Confirmation effectué avec succès 😃!!") ; 
+      this.listClient();
     } , error=>{
         _error("Une erreur est survenue !!!") ; 
     }) ; 

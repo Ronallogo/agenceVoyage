@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Client_2, Ticket, Voyage} from "../../model/interfaces";
+import {Agent_1, Client_2, Ticket, Voyage} from "../../model/interfaces";
+import { response } from 'express';
  
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicationService {
+  
 
 
   private BaseUrl = "http://localhost:8081/tg/voyage_pro/reservation/auth/";
@@ -100,16 +102,63 @@ export class ApplicationService {
   /*________________________________________________________*/
 
 
-  /*
-  
-     create(voyage : any){
-    return fetch(this.BaseUrl+"voyage/create" ,  {
+ 
+  /**
+   * 
+   * @param agent 
+   * @returns 
+   */
+  async createAgent(agent : any){
+    let reponse = await fetch(this.BaseUrl+"agent/create" ,  {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(voyage)
-  })
-  */ 
- 
+      body: JSON.stringify(agent)
+    }) ; 
+
+    return reponse.json() ; 
+  }
+  
+  async getListAgent(){
+    let response = await fetch(this.BaseUrl+"agent/getAll",{ method : 'GET'})
+    return response.json()
+     
+  }
+
+  async searchAgent(agent : any){
+      let reponse = await fetch(this.BaseUrl+"agent/search" ,  {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(agent)
+    }) ; 
+
+    return reponse.json() ;
+  }
+
+  async updateAgent(agent : Agent_1){
+
+    let response = await fetch(this.BaseUrl+"agent/update/"+agent.idAgent , {
+      method : 'PUT'  , 
+      headers :{
+        'Content-Type': 'application/json'
+      } , 
+      
+      body : JSON.stringify(agent)
+    }) ; 
+    return response.json();
+
+  }
+
+  async deleteAgent(idAgent: any) {
+    let response = await fetch(this.BaseUrl+"agent/delete/"+idAgent , {method : 'DELETE'}) ; 
+    return response.json()
+  }
+
+
+
+  /*_________________________________________________*/
+
 }

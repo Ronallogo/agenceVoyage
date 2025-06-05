@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+
 
 
 
@@ -9,11 +11,25 @@ import {BodyApplicationComponent} from "./layout/body-application/body-applicati
 
 @Component({
   selector: 'app-root',
-  imports: [SidebarComponent, NavBarComponent, BodyApplicationComponent],
+  imports: [SidebarComponent, NavBarComponent, BodyApplicationComponent ],
   templateUrl: './app.component.html',
   standalone: true,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent  implements OnInit{
+
+  protected userViews  : string = "" ; 
+
+  protected user : string = "";
+
+  
+
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
   title = 'agenceVoyage';
+
+
+
 }
