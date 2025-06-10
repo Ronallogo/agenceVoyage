@@ -4,19 +4,20 @@ import {NgClass} from "@angular/common";
 import {NgxPaginationModule} from "ngx-pagination";
 import {Client_2, Reservation} from "../../../model/interfaces";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import { Application } from 'express';
+
 import { ApplicationService } from '../../service/application.service';
-import {NgOptionComponent, NgSelectComponent} from "@ng-select/ng-select";
+
 
 @Component({
   selector: 'app-reservation',
   imports: [
-    NgClass,
+
     NgxPaginationModule,
     FormsModule,
-    NgSelectComponent,
-    NgOptionComponent,
+
+
     ReactiveFormsModule,
+    NgClass,
 
   ],
   templateUrl: './reservation.component.html',
@@ -24,27 +25,23 @@ import {NgOptionComponent, NgSelectComponent} from "@ng-select/ng-select";
   styleUrl: './reservation.component.css'
 })
 export class ReservationComponent  implements OnInit{
-listenUpdate(_t69: Reservation) {
-throw new Error('Method not implemented.');
-}
-modifier(_t69: Reservation) {
-throw new Error('Method not implemented.');
-}
-cancelUpdate() {
-throw new Error('Method not implemented.');
-}
 
-protected onUpdating: boolean = false;
-protected indexedLocation: number = 0 ;
 
-protected clients : Client_2[] = [] ;
+  protected onUpdating: boolean = false;
+  protected indexedLocation: number = 0 ;
+
+  protected  reservations :  Reservation[] = [] ;
+
+ 
 
 
 
 
-listClient(){
 
-}
+
+  listClient(){
+
+  }
 
 
 
@@ -68,14 +65,14 @@ listClient(){
     nbrPlace : new FormControl() ,
     libelleTypeBillet : new FormControl() ,
     libelleVoyage : new FormControl() ,
-    mailClient : new FormControl() , 
-   
+    mailClient : new FormControl() ,
+
   });
 
 
-  protected entete : string[] = ["No" , "Nom du client" , "Mail Client" , "Voyage" , "Type de billet" , "Nombre de place" , "Actions"]
+  protected entete : string[] = ["No" , "Nom du client" ,"Prénom Client", "Mail Client" , "Voyage" , "Type de billet" , "Nombre de place" , "Actions"]
 
-  protected  reservations : Reservation[]  =  [] ;
+  
 
 
 
@@ -97,4 +94,7 @@ listClient(){
 
   }
 
+  rejected(idTypeBillet: number) {
+    
+  }
 }

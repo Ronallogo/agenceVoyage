@@ -3,24 +3,25 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Agent_1, Client_2, Ticket, Voyage} from "../../model/interfaces";
 import { response } from 'express';
- 
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicationService {
-  
+
 
 
   private BaseUrl = "http://localhost:8081/tg/voyage_pro/reservation/auth/";
+  private BaseUrl2 = "http://localhost:8081/tg/voyage_pro/reservation/";
   hide : string = "liste" ;
 
   constructor(private http : HttpClient) { }
  /**
-  * 
-  * @param voyage 
-  * @returns 
-  * 
+  *
+  * @param voyage
+  * @returns
+  *
   *  FONCTIONNALITÉS DU MODULE VOYAGE
   */
   createVoyage(voyage :  any) : Observable<any>{
@@ -33,7 +34,7 @@ export class ApplicationService {
 
 
   updateVoyage(voyage : Voyage) : Observable<any>{
-    return this.http.put( this.BaseUrl+"voyage/update/"+voyage.idVoyage , voyage) ; 
+    return this.http.put( this.BaseUrl+"voyage/update/"+voyage.idVoyage , voyage) ;
   }
 
   deleteVoyage(idVoyage : number):Observable<any>{
@@ -44,15 +45,15 @@ export class ApplicationService {
   /* ------------------------------------------------------*/
 
   /**
-   * 
-   * @param client 
-   * @returns 
-   * 
+   *
+   * @param client
+   * @returns
+   *
    * FONCTIONNALITÉS DU MODULE CLIENT
    */
   createClient(client : any):Observable<any>{
       return this.http.post(this.BaseUrl+"client/create",client);
-  }  
+  }
   getAllClient():Observable<any>{
       return this.http.get(this.BaseUrl+"client/getAll")
   }
@@ -67,11 +68,11 @@ export class ApplicationService {
 
 
   refresh():Observable<any>{
-    return this.http.get(this.BaseUrl+"client/refresh") ; 
+    return this.http.get(this.BaseUrl+"client/refresh") ;
   }
 
   search(t : any):Observable<any>{
-    return  this.http.put(this.BaseUrl+"client/search" , t) ; 
+    return  this.http.put(this.BaseUrl+"client/search" , t) ;
   }
 
 
@@ -79,9 +80,9 @@ export class ApplicationService {
   /*______________________________________________________________  */
 
   /**
-   * 
-   * @param ticket 
-   * @returns 
+   *
+   * @param ticket
+   * @returns
    */
   createTicket(ticket : any):Observable<any>{
     return this.http.post(this.BaseUrl+"ticket/create" ,  ticket);
@@ -102,59 +103,44 @@ export class ApplicationService {
   /*________________________________________________________*/
 
 
- 
+
   /**
-   * 
-   * @param agent 
-   * @returns 
+   *
+   * @param agent
+   * @returns
    */
   async createAgent(agent : any){
-    let reponse = await fetch(this.BaseUrl+"agent/create" ,  {
+    let reponse = await fetch(this.BaseUrl2+"agent/register" ,  {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(agent)
-    }) ; 
-
-    return reponse.json() ; 
-  }
-  
-  async getListAgent(){
-    let response = await fetch(this.BaseUrl+"agent/getAll",{ method : 'GET'})
-    return response.json()
-     
-  }
-
-  async searchAgent(agent : any){
-      let reponse = await fetch(this.BaseUrl+"agent/search" ,  {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(agent)
-    }) ; 
+    }) ;
 
     return reponse.json() ;
   }
 
-  async updateAgent(agent : Agent_1){
-
-    let response = await fetch(this.BaseUrl+"agent/update/"+agent.idAgent , {
-      method : 'PUT'  , 
-      headers :{
-        'Content-Type': 'application/json'
-      } , 
-      
-      body : JSON.stringify(agent)
-    }) ; 
-    return response.json();
+  async getListAgent(){
+    let response = await fetch(this.BaseUrl+"agent/getAll",{ method : 'GET'})
+    return response.json()
 
   }
 
-  async deleteAgent(idAgent: any) {
-    let response = await fetch(this.BaseUrl+"agent/delete/"+idAgent , {method : 'DELETE'}) ; 
-    return response.json()
+  searchAgent(agent : any) :Observable<any>{
+    return  this.http.put(this.BaseUrl+"agent/search" , agent) ;
+  }
+
+  updateAgent(agent : Agent_1) : Observable<any>{
+
+    return this.http.put(this.BaseUrl+"agent/update/"+agent.idAgent , agent)
+     
+
+  }
+
+  deleteAgent(idAgent: any) : Observable<any> {
+    return this.http.delete(this.BaseUrl+"agent/delete/"+idAgent) ;
+    
   }
 
 

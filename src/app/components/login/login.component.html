@@ -1,1 +1,99 @@
-<p>login works!</p>
+<section class="relative min-h-screen flex items-center justify-center bg-gray-50">
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center opacity-90"></div>
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  <!-- Login Card -->
+  <div class="relative z-10 w-full max-w-md px-6 py-12">
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:shadow-primary/30">
+      <!-- Card Header -->
+      <div class="bg-gradient-to-r from-primary to-red-800 p-6 text-center">
+        <h2 class="text-3xl font-bold text-black">Connexion</h2>
+        <p class="text-black mt-2">😊Accédez à votre espace </p>
+      </div>
+      <hr class="line-clamp-2">
+
+      <!-- Card Body -->
+      <div class="p-8">
+        <form [formGroup]="formUser" class="space-y-6">
+          <!-- Username Field -->
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              type="text"
+              formControlName="username"
+              id="username"
+              class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                            bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                            focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required />
+            <label for="username" class="peer-focus:font-medium absolute
+                            text-base text-gray-800 font-semibold duration-300 transform
+                            -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                            peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                            peer-focus:scale-75 peer-focus:-translate-y-6">
+              Nom d'utilisateur
+            </label>
+            @if( formUser.controls.username.invalid &&  formUser.controls.username.dirty){
+              <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Nom d'utilisateur invalide</span>
+              </div>
+            }
+          </div>
+
+          <!-- Password Field -->
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              type="password"
+              formControlName="password"
+              id="password"
+              class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                            bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                            focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required />
+            <label for="password" class="peer-focus:font-medium absolute
+                            text-base text-gray-800 font-semibold duration-300 transform
+                            -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                            peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                            peer-focus:scale-75 peer-focus:-translate-y-6">
+              Mot de passe
+            </label>
+            @if( formUser.controls.password.invalid &&  formUser.controls.password.dirty){
+              <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Mot de passe trop faible</span>
+              </div>
+            }
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            [disabled]=" formUser.invalid"
+            (click)="login()"
+            class="w-full text-white  bg-red-700    transition-all ease-in-out  duration-300
+                        focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg
+                        text-lg px-5 py-2.5 text-center
+                        disabled:bg-gray-600 disabled:cursor-not-allowed">
+            Se connecter
+          </button>
+
+          <!-- Forgot Password Link -->
+          <div class="text-center mt-4">
+            <a href="#" class="text-sm font-medium text-primary hover:text-red-800">
+              Mot de passe oublié ?
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
