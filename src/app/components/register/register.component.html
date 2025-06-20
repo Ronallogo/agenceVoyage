@@ -1,0 +1,313 @@
+<section class="relative min-h-screen flex items-center justify-center bg-gray-50">
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center opacity-90"></div>
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  <!-- Registration Card -->
+  <div class="relative z-10 w-full max-w-2xl px-6 py-8">
+    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:shadow-primary/30">
+      <!-- Card Header -->
+      <div class="bg-gradient-to-r from-primary to-red-800 p-6 text-center">
+        <h2 class="text-3xl font-bold text-black">Inscription</h2>
+        <p class="text-black mt-2">✨ Créez votre compte en quelques étapes</p>
+        <div *ngIf="errorFound" class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700 justify-center">
+          <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>Une erreur est survenue lors de l'inscription</span>
+        </div>
+      </div>
+      <hr class="border-gray-200">
+
+      <!-- Card Body -->
+      <div class="p-8">
+        <form [formGroup]="registerForm" class="space-y-4">
+          <!-- Two columns for name fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- First Name Field -->
+            <div class="relative z-0 w-full group">
+              <input
+                type="text"
+                formControlName="prenomClient"
+                id="prenomClient"
+                class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required />
+              <label for="prenomClient" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+                Prénom
+              </label>
+              @if(registerForm.controls.prenomClient.invalid && registerForm.controls.prenomClient.dirty){
+                <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>Prénom requis</span>
+                </div>
+              }
+            </div>
+
+            <!-- Last Name Field -->
+            <div class="relative z-0 w-full group">
+              <input
+                type="text"
+                formControlName="nomClient"
+                id="nomClient"
+                class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required />
+              <label for="nomClient" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+                Nom
+              </label>
+              @if(registerForm.controls.nomClient.invalid && registerForm.controls.nomClient.dirty){
+                <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>Nom requis</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Email Field -->
+          <div class="relative z-0 w-full group">
+            <input
+              type="email"
+              formControlName="mailClient"
+              id="mailClient"
+              class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                            bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                            focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required />
+            <label for="mailClient" class="peer-focus:font-medium absolute
+                            text-base text-gray-800 font-semibold duration-300 transform
+                            -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                            rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                            peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                            peer-focus:scale-75 peer-focus:-translate-y-6">
+              Adresse email
+            </label>
+            @if(registerForm.controls.mailClient.invalid && registerForm.controls.mailClient.dirty){
+              <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>Email invalide</span>
+              </div>
+            }
+          </div>
+
+          <!-- Phone and Birth Date -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Phone Field -->
+            <div class="relative z-0 w-full group">
+              <input
+                type="tel"
+                formControlName="telClient"
+                id="telClient"
+                class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required />
+              <label for="telClient" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+                Téléphone
+              </label>
+              @if(registerForm.controls.telClient.invalid && registerForm.controls.telClient.dirty){
+                <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>Numéro invalide</span>
+                </div>
+              }
+            </div>
+
+            <!-- Birth Date Field -->
+            <div class="relative z-0 w-full group">
+              <input
+                type="date"
+                formControlName="dateNaiss"
+                id="dateNaiss"
+                class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required />
+              <label for="dateNaiss" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+                Date de naissance
+              </label>
+            </div>
+          </div>
+
+          <!-- Gender Field -->
+          <div class="relative z-0 w-full group">
+            <label class="text-base text-gray-800 font-semibold mb-2 block">Sexe</label>
+            <div class="flex space-x-4">
+              <label class="inline-flex items-center">
+                <input  id="Homme" type="radio" formControlName="sexeClient" value="M" class="form-radio h-5 w-5 text-red-700">
+                <span class="ml-2">Masculin</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input id="Femme" type="radio" formControlName="sexeClient" value="F" class="form-radio h-5 w-5 text-red-700">
+                <span class="ml-2">Féminin</span>
+              </label>
+            </div>
+          </div>
+          <div class="relative z-0 w-full group">
+            <input
+              type="text"
+              formControlName="login"
+              id="login"
+              class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required />
+            <label for="nomClient" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+              Login
+            </label>
+            @if(registerForm.controls.login.invalid && registerForm.controls.login.dirty){
+              <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span>login requis</span>
+              </div>
+            }
+          </div>
+
+          <!-- Password Fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <!-- Password Field -->
+            <div class="relative z-0 w-full group">
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required />
+              <label for="password" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+                Mot de passe
+              </label>
+              @if(registerForm.controls.password.invalid && registerForm.controls.password.dirty){
+                <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>8 caractères minimum</span>
+                </div>
+              }
+              @if(  registerForm.controls.password.invalid &&  registerForm.controls.password.dirty ){
+                <div  class="  animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class=" text-base mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                  <span  > faible mot de passe  !!   </span>
+                </div>}
+              @if(registerForm.controls.password.dirty && validatorPassword(registerForm.getRawValue().password) == 2 ){
+                <div  class="   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-yellow-700">
+                  <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#F9DB78"><path d="M479.79-288q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5ZM444-432h72v-240h-72v240Zm36.28 336Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Zm0-312Z"/>
+                  </svg>
+                  <span>  mot de passe léger !!</span>
+                </div>
+              }
+              @if(registerForm.controls.password.dirty && validatorPassword(registerForm.getRawValue().password) == 1){
+                <div  class=" w-full   animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1 " width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                  <span class="text-sm"> Le mot de passe devra avoir au moins une majuscule et des chiffres !!</span>
+                </div>
+              }
+
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="relative z-0 w-full group">
+              <input
+                type="password"
+                formControlName="confirmPassword"
+                id="confirmPassword"
+                class="font-extrabold block py-2.5 px-0 w-full text-lg text-gray-900
+                              bg-transparent border-0 border-b-2 border-gray-300 appearance-none
+                              focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required />
+              <label for="confirmPassword" class="peer-focus:font-medium absolute
+                              text-base text-gray-800 font-semibold duration-300 transform
+                              -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0
+                              rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600
+                              peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                              peer-focus:scale-75 peer-focus:-translate-y-6">
+                confirmation
+              </label>
+              @if(!samePassword()){
+                <div class="animate__animated animate__fadeIn flex grid-cols-2 gap-3 text-red-700">
+                  <svg class="mt-1" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16H12.01M12 8V12M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#e40707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>Les mots de passe ne correspondent pas</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            [disabled]="registerForm.invalid || !samePassword()"
+            (click)="register()"
+            class="w-full mt-8 text-white bg-red-700 transition-all ease-in-out duration-300
+                        focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg
+                        text-lg px-5 py-2.5 text-center
+                        disabled:bg-gray-600 disabled:cursor-not-allowed">
+            S'inscrire
+          </button>
+
+          <!-- Login Link -->
+          <div class="text-center mt-4">
+            <p class="text-sm font-medium text-gray-600">
+              Déjà un compte ?
+              <a routerLink="/login" class="text-primary hover:text-red-800">Connectez-vous</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

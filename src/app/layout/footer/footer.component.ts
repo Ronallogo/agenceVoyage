@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {_warning} from "../../notification/notification";
 
 @Component({
   selector: 'app-footer',
@@ -13,4 +14,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 })
 export class FooterComponent {
 
+  askForConnexion() {
+      _warning("Veuillez-vous connectez ou vous s'inscrire") ;
+  }
 }

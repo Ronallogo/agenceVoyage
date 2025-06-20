@@ -1,58 +1,65 @@
-import { Component } from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {samePassword, validatorPassword} from "../../../model/interfaces";
-import {NgClass} from "@angular/common";
-import {AuthenticationService} from "../../service/authentication.service";
-import {   Router } from '@angular/router';
- 
+import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import { AuthenticationService } from "../../service/authentication.service";
+import { Router } from "@angular/router";
+import { ApplicationService } from "../../service/application.service";
+import { IndexedDbService } from '../../service/indexed-db.service';
+import {NgIf} from "@angular/common";
+import {_error} from "../../notification/notification";
 
 @Component({
   selector: 'app-login',
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    
-  ],
-   
   templateUrl: './login.component.html',
   standalone: true,
-  styleUrl: './login.component.css'
+  imports: [
+    ReactiveFormsModule,
+    NgIf
+  ],
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  protected formUser =  new FormGroup({
-     username :  new FormControl() ,
+export class LoginComponent implements OnInit {
+  protected errorFound: boolean = false;
 
-    password :  new FormControl() ,
+  protected formUser = new FormGroup({
+    username: new FormControl(),
+    password: new FormControl(),
   });
 
-  constructor(protected auth : AuthenticationService , protected router : Router   ) {
+  constructor(
+    protected service: ApplicationService,
+    protected auth: AuthenticationService,
+    protected router: Router,
+    private indexedDBService: IndexedDbService
+  ) {}
+
+  async login() {
+    this.auth.login({
+      username: this.formUser.getRawValue().username,
+      password: this.formUser.getRawValue().password
+    }).subscribe(async data => {
+      try {
+        this.errorFound = false;
+        const user = this.auth.getUser(data.access_token);
+
+        await this.indexedDBService.setUser({id : 0 ,...user });
+        this.service.user = await this.indexedDBService.getUser()
+
+        console.log(this.service.user);
+
+
+        if (this.service.user !== undefined) {
+          await this.router.navigate(['/user/profile']);
+        }
+
+      } catch (e) {
+        console.error('Erreur de stockage IndexedDB', e);
+      }
+    }, err => {
+      console.log(err);
+      this.errorFound = true;
+     // this.indexedDBService.deleteUser('user');
+    });
   }
-  searchClient() {
 
-  }
-
-  refresh() {
-
-  }
-
-  protected readonly validatorPassword = validatorPassword;
-  protected readonly samePassword = samePassword;
-
-
-
-
-  login() {
-      this.auth.login({...this.formUser.getRawValue()}).subscribe(data=>{
-          localStorage.setItem("user" , JSON.stringify(data.access_token) );
-          this.router.navigate(['/agent/dashboard'])
-
-
-          console.log(this.auth.getUser(data.access_token)) ; 
-           
-
-      } , err=>{
-        console.log(err) ; 
-        localStorage.setItem("user" , JSON.stringify(undefined) );
-      })
-  }
+  ngOnInit(): void {}
 }

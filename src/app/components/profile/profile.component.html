@@ -1,0 +1,252 @@
+
+
+<div style="margin-left: 20%; margin-top: 5%; width: 95%" class="  bg-fixed">
+  <div class="grid grid-cols-2 space-y-14  gap-10 p-4 border-2 w-full h-full border-gray-200 rounded-lg">
+    <!-- https://gist.github.com/goodreds/5b8a4a2bf11ff67557d38c5e727ea86c -->
+
+    <div
+      class="w-full  mt-14   bg-white shadow-xl rounded-3xl text-gray-900">
+      <div class="rounded-t-3xl h-32 overflow-hidden">
+        <img class="object-cover   object-center w-full" src='assets/img/OIP.jpeg' alt='Mountain'>
+
+      </div>
+      <div class="animate__animated animate__rotateIn mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
+        <img class=" object-cover object-center h-32" src='assets/img/img.png' alt='looking front'>
+      </div>
+      <div class="text-center   flex justify-center mt-2">
+        <div class=" grid grid-cols-1 gap-2">
+          <!-- Email -->
+          <p class="w-full font-extrabold underline  animate__animated animate__fadeInUp mr-3">
+            {{service.user?.email}}
+          </p>
+
+          @if(loading){
+            <!-- Nom complet avec icône -->
+            <p class="flex justify-items-center gap-2 font-semibold text-gray-500   ">
+              <svg class="animate__animated animate__fadeInUp" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#666666">
+                <path d="M480-480q-60 0-102-42t-42-102q0-60 42-102t102-42q60 0 102 42t42 102q0 60-42 102t-102 42ZM192-192v-96q0-23 12.5-43.5T239-366q55-32 116.29-49 61.29-17 124.5-17t124.71 17Q666-398 721-366q22 13 34.5 34t12.5 44v96H192Zm72-72h432v-24q0-5.18-3.03-9.41-3.02-4.24-7.97-6.59-46-28-98-42t-107-14q-55 0-107 14t-98 42q-5 4-8 7.72-3 3.73-3 8.28v24Zm216.21-288Q510-552 531-573.21t21-51Q552-654 530.79-675t-51-21Q450-696 429-674.79t-21 51Q408-594 429.21-573t51 21Zm-.21-72Zm0 360Z"/>
+              </svg>
+              {{service.user?.firstname}} {{service.user?.lastname}}
+            </p>
+
+            <!-- Téléphone avec icône -->
+            <p class="flex items-center gap-2 text-gray-500  ">
+              <svg class="animate__animated animate__fadeInUp" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#666666">
+                <path d="M763-145q-121-9-229.5-59.5T339-341q-86-86-135.5-194T144-764q-2-21 12.29-36.5Q170.57-816 192-816h136q17 0 29.5 10.5T374-779l24 106q2 13-1.5 25T385-628l-97 98q20 38 46 73t57.97 65.98Q422-361 456-335.5q34 25.5 72 45.5l99-96q8-8 20-11.5t25-1.5l107 23q17 5 27 17.5t10 29.5v136q0 21.43-16 35.71Q784-143 763-145ZM255-600l70-70-17.16-74H218q5 38 14 73.5t23 70.5Zm344 344q35.1 14.24 71.55 22.62Q707-225 744-220v-90l-75-16-70 70ZM255-600Zm344 344Z"/>
+              </svg>
+              {{service.user?.phone}}
+            </p>
+
+            <!-- Sub (username) -->
+            <p class="flex items-center text-gray-500  ">
+
+              <svg class="animate__animated animate__fadeInUp" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#666666"><path d="M264-624h336v-96q0-50-35-85t-85-35q-50 0-85 35t-35 85h-72q0-80 56.23-136 56.22-56 136-56Q560-912 616-855.84q56 56.16 56 135.84v96h24q29.7 0 50.85 21.15Q768-581.7 768-552v384q0 29.7-21.16 50.85Q725.68-96 695.96-96H263.72Q234-96 213-117.15T192-168v-384q0-29.7 21.15-50.85Q234.3-624 264-624Zm0 456h432v-384H264v384Zm216.21-120Q510-288 531-309.21t21-51Q552-390 530.79-411t-51-21Q450-432 429-410.79t-21 51Q408-330 429.21-309t51 21ZM264-168v-384 384Z"/>
+              </svg>{{ service.user?.sub}}
+            </p>
+          }@else{
+            <div class="flex justify-center w-full">
+              <div class="  w-10 h-10 border-4 border-gray-300 border-t-red-700 rounded-full animate-spin"></div>
+
+            </div>
+          }
+        </div>
+
+
+      </div>
+      <ul   class=" animate__animated animate__fadeInUp py-4 mt-2 text-gray-700 flex items-center justify-around">
+        <li class="flex flex-col items-center justify-around">
+          <svg class="w-4 fill-current text-blue-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path
+              d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+          </svg>
+          <div>2k</div>
+        </li>
+        <li class="flex flex-col items-center justify-between">
+          <svg class="w-4 fill-current text-blue-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path
+              d="M7 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1c2.15 0 4.2.4 6.1 1.09L12 16h-1.25L10 20H4l-.75-4H2L.9 10.09A17.93 17.93 0 0 1 7 9zm8.31.17c1.32.18 2.59.48 3.8.92L18 16h-1.25L16 20h-3.96l.37-2h1.25l1.65-8.83zM13 0a4 4 0 1 1-1.33 7.76 5.96 5.96 0 0 0 0-7.52C12.1.1 12.53 0 13 0z" />
+          </svg>
+          <div>10k</div>
+        </li>
+        <li class="flex flex-col items-center justify-around">
+          <svg class="w-4 fill-current text-blue-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path
+              d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
+          </svg>
+          <div>15</div>
+        </li>
+      </ul>
+
+
+
+      <div class="p-4 border-t mx-8 mt-2">
+        @if(role == 'CLIENT' ){
+
+        <button  [routerLinkActive]="'active'"  [routerLink]="'/user/client-historique/'" class="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Voir les historiques </button>
+        }
+        @else{
+         <button  [routerLinkActive]="'active'"  [routerLink]=" '/user/historique/'" class="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Voir les historiques </button>
+
+        }
+      </div>
+    </div>
+
+    <form [formGroup]="formUser" class="w-full    p-8 bg-white rounded-3xl shadow-xl shadow-gray-200/70 mt-10 space-y-8">
+
+      <!-- Titre -->
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Modification du profil</h2>
+        <p class="text-gray-500 mt-1">Mettez à jour vos informations personnelles</p>
+      </div>
+
+      <div class="border-b border-gray-100"></div>
+
+      <!-- Première ligne -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Nom -->
+        <div class="space-y-1">
+          <label for="nomUser" class="block text-sm font-medium text-gray-700">Nom</label>
+          <div class="relative">
+            <input
+              type="text"
+              formControlName="nomUser"
+              id="nomUser"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400"
+              placeholder="Votre nom"
+            />
+            @if(formUser.controls.nomUser.invalid && formUser.controls.nomUser.dirty) {
+              <div class=" animate__fadeIn absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            }
+          </div>
+          @if(formUser.controls.nomUser.invalid && formUser.controls.nomUser.dirty) {
+            <p class="animate__animated animate__fadeIn mt-1 text-sm text-red-600 flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+              </svg>
+              Veuillez entrer un nom valide
+            </p>
+          }
+        </div>
+
+        <!-- Prénom -->
+        <div class="space-y-1">
+          <label for="prenomUser" class="block text-sm font-medium text-gray-700">Prénom</label>
+          <div class="relative">
+            <input
+              type="text"
+              formControlName="prenomUser"
+              id="prenomUser"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400"
+              placeholder="Votre prénom"
+            />
+            @if(formUser.controls.prenomUser.invalid && formUser.controls.prenomUser.dirty) {
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            }
+          </div>
+          @if(formUser.controls.prenomUser.invalid && formUser.controls.prenomUser.dirty) {
+            <p class="mt-1 text-sm text-red-600 flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+              </svg>
+              Respectez la longueur autorisée
+            </p>
+          }
+        </div>
+      </div>
+
+      <!-- Deuxième ligne -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Email -->
+        <div class="space-y-1">
+          <label for="mailUser" class="block text-sm font-medium text-gray-700">Adresse email</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+            </div>
+            <input
+              type="email"
+              id="mailUser"
+              formControlName="mailUser"
+              class="w-full pl-10 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400"
+              placeholder="email@exemple.com"
+            />
+            @if(formUser.controls.mailUser.invalid && formUser.controls.mailUser.dirty) {
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            }
+          </div>
+          @if(formUser.controls.mailUser.invalid && formUser.controls.mailUser.dirty) {
+            <p class="mt-1 text-sm text-red-600 flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+              </svg>
+              Veuillez entrer un email valide
+            </p>
+          }
+        </div>
+
+        <!-- Téléphone -->
+        <div class="space-y-1">
+          <label for="telUser" class="block text-sm font-medium text-gray-700">Téléphone</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+            <input
+              type="tel"
+              formControlName="telUser"
+              id="telUser"
+              class="w-full pl-10 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 text-gray-800 placeholder-gray-400"
+              placeholder="+33 6 12 34 56 78"
+            />
+            @if(formUser.controls.telUser.invalid && formUser.controls.telUser.dirty) {
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            }
+          </div>
+          @if(formUser.controls.telUser.invalid && formUser.controls.telUser.dirty) {
+            <p class="mt-1 text-sm text-red-600 flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+              </svg>
+              Numéro de téléphone invalide
+            </p>
+          }
+        </div>
+      </div>
+
+      <!-- Bouton de soumission -->
+      <div class="pt-6">
+        <button
+          (click)="modify()"
+          type="submit"
+          class="w-full md:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 text-white font-medium rounded-lg transition-all duration-200 shadow-md"
+          [disabled]="formUser.invalid"
+        >
+          Enregistrer les modifications
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+</div>

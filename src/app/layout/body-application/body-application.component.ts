@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
+import {ApplicationService} from "../../service/application.service";
 
 @Component({
   selector: 'app-body-application',
@@ -10,6 +11,14 @@ import {RouterOutlet} from "@angular/router";
   standalone: true,
   styleUrl: './body-application.component.css'
 })
-export class BodyApplicationComponent {
+export class BodyApplicationComponent  implements OnInit{
+  protected view  :string  = "" ;
+  constructor(protected service : ApplicationService) {
+  }
+
+  ngOnInit(): void {
+      this.view = this.service.view ;
+  }
+
 
 }

@@ -1,0 +1,293 @@
+ <div style="margin-left: 20%; margin-top: 5%; width: 95%" class="animate__animated animate__fadeIn bg-fixed">
+  <div class="grid grid-cols-1 space-y-14 p-4 border-2 w-full h-full border-gray-200 rounded-lg">
+    <div class="grid grid-cols-3 gap-6">
+
+      <div class="grid-cols-1 animate__animated animate__fadeIn gap-2 bg-white p-4 rounded-xl drop-shadow-2xl shadow-gray-500">
+        <div class="flex justify-end w-full text-gray-500 ml-1.5">
+          <span class="text-sm">clients </span>
+        </div>
+        <div class="grid grid-cols-2 ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="100px" viewBox="0 -960 960 960" width="100px" fill="#8B1A10"><path d="M480-480q-60 0-102-42t-42-102q0-60 42-102t102-42q60 0 102 42t42 102q0 60-42 102t-102 42ZM192-192v-96q0-23 12.5-43.5T239-366q55-32 116.29-49 61.29-17 124.5-17t124.71 17Q666-398 721-366q22 13 34.5 34t12.5 44v96H192Zm72-72h432v-24q0-5.18-3.03-9.41-3.02-4.24-7.97-6.59-46-28-98-42t-107-14q-55 0-107 14t-98 42q-5 4-8 7.72-3 3.73-3 8.28v24Zm216.21-288Q510-552 531-573.21t21-51Q552-654 530.79-675t-51-21Q450-696 429-674.79t-21 51Q408-594 429.21-573t51 21Zm-.21-72Zm0 360Z"/>
+          </svg>
+
+        </div>
+        <div class="text-xl font-bold text-red-700 animate__animated animate_fadeIn"> {{last_reservation_average}}% <span class="font-thin text-sm text-black">réservations récents</span></div>
+
+        <hr>
+
+
+
+        <div routerLinkActive="active"  routerLink="/user/reservation"  class=" duration-300 ease-in-out transition-all w-full text-red-600 hover:bg-red-600 hover:text-white flex justify-center h-12 mt-6 bg-gray-300 rounded-3xl">
+          <span class=" font-semibold mt-2   text-md">Tout voir</span>
+        </div>
+
+      </div>
+      <div class="grid-cols-1 animate__animated animate__fadeIn gap-2 bg-white p-4 rounded-xl drop-shadow-2xl shadow-gray-500">
+        <div class="flex justify-end w-full text-gray-500 ml-1.5">
+          <span class="text-sm">voyage</span>
+        </div>
+        <div class="grid grid-cols-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="100px" viewBox="0 -960 960 960" width="100px" fill="#255290"><path d="M144-144v-72h672v72H144Zm72-192L70-570l93-25 112 94 133-36-203-268 116-32 289 245 163-44q29-8 55 7t34 44q8 29-7 54.5T811-497L216-336Z"/>
+          </svg>
+
+        </div>
+        <div class="text-xl font-bold text-blue-700 animate__animated animate_fadeIn">  {{recentVoyage}}% <span class="font-thin text-sm text-black">voyages récents</span></div>
+
+        <hr>
+
+
+
+        <div routerLink="/user/voyage" routerLinkActive="active" class=" duration-300 ease-in-out transition-all w-full text-blue-600 hover:bg-blue-600 hover:text-white flex justify-center h-12 mt-6 bg-gray-300 rounded-3xl">
+          <span class=" font-semibold mt-2   text-md">Tout voir</span>
+        </div>
+
+      </div>
+      <div class="grid-cols-1 animate__animated animate__fadeIn gap-2 bg-white p-4 rounded-xl drop-shadow-2xl shadow-gray-500">
+        <div class="flex justify-end w-full text-gray-500 ml-1.5">
+          <span class="text-sm">paiements</span>
+        </div>
+        <div class="grid grid-cols-2">
+          <svg xmlns="http://www.w3.org/2000/svg" height="100px" viewBox="0 -960 960 960" width="100px" fill="#78A75A"><path d="M552-432q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Zm-288 96q-29.7 0-50.85-21.17Q192-378.33 192-408.06v-288.22Q192-726 213.15-747T264-768h576q29.7 0 50.85 21.17Q912-725.67 912-695.94v288.22Q912-378 890.85-357T840-336H264Zm72-72h432q0-30 21.15-51.12 21.15-21.11 50.85-21.11V-624q-29.7 0-50.85-21.15Q768-666.3 768-696H336q0 30-21.15 51.12-21.15 21.11-50.85 21.11V-480q29.7 0 50.85 21.15Q336-437.7 336-408Zm456 216H120q-29.7 0-50.85-21.15Q48-234.3 48-264v-408h72v408h672v72ZM264-408v-288 288Z"/>
+          </svg>
+
+        </div>
+        <div class="text-xl font-bold text-green-700 animate__animated animate_fadeIn"> {{paiementRecent}}% <span class="font-thin text-sm text-black">paiements récents</span></div>
+
+        <hr>
+
+
+
+        <div routerLinkActive="active" routerLink="/user/paiement" class=" duration-300 ease-in-out transition-all w-full text-green-600 hover:bg-green-600 hover:text-white flex justify-center h-12 mt-6 bg-gray-300 rounded-3xl">
+          <span class=" font-semibold mt-2   text-md">Tout voir</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class=" grid grid-cols-3 gap-6 mb-8">
+      <!-- Carte : Revenus des réservations -->
+      <div class="animate__animated animate__fadeInLeft bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow">
+        <div class="flex justify-center mb-3">
+          <div class="bg-blue-50 p-3 rounded-full">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-700 mb-1">Revenus des réservations</h3>
+        <p class="text-3xl font-bold text-blue-600">+{{newEarnPourcentage}}%</p>
+        <p class="text-sm text-gray-500 mt-2 flex items-center justify-center">
+          <svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+          vs mois précédent
+        </p>
+      </div>
+
+      <!-- Carte : Clients actifs -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow">
+        <div class="flex justify-center mb-3">
+          <div class="  bg-green-50 p-3 rounded-full">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-700 mb-1">Clients abonnée(s)</h3>
+        <p class="text-3xl font-bold text-green-600 animate__animated animate_fadeIn">{{clients.length}}</p>
+        <p class="text-sm text-gray-500 mt-2 flex items-center justify-center">
+          <svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+          +{{resParClient}}  de reservation en moyenne
+        </p>
+      </div>
+
+      <!-- Carte : Vols réservés -->
+      <div class="animate__animated animate__fadeInRight bg-white p-6 rounded-2xl shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow">
+        <div class="flex justify-center mb-3">
+          <div class="bg-red-50 p-3 rounded-full">
+            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-700 mb-1">Vols réservés</h3>
+        <p class="text-3xl font-bold text-red-600">{{volReserver}}</p>
+        <p class="text-sm text-gray-500 mt-2 flex items-center justify-center">
+          <svg class="w-4 h-4 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+          +7% dernières 24h
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+      <!-- Carte : Gains totaux -->
+      <div class="animate__animated animate__fadeInLeft bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center mb-4">
+          <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-3 rounded-xl mr-4 shadow-inner">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-lg font-semibold text-gray-700 tracking-tight">Gains totaux</h2>
+            <p class="text-xs text-purple-500 font-medium">Ce mois-ci</p>
+          </div>
+        </div>
+        <div class="flex items-end justify-between">
+          <p class="text-3xl font-bold text-gray-900 mb-1">${{gainTotal}}</p>
+          <div class="flex items-center text-sm px-2 py-1 rounded-full bg-green-100 text-green-600">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            </svg>
+            12%
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-100 border-dashed">
+          <p class="text-xs text-gray-500 flex items-center">
+            <svg class="w-3 h-3 mr-1 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+            </svg>
+            Mise à jour : 15 juin 2023
+          </p>
+        </div>
+      </div>
+      <!-- Carte : Statistiques des réservations -->
+      <div class=" bg-white rounded-2xl shadow-md border border-gray-100 p-6 lg:col-span-2 hover:shadow-lg transition-shadow">
+        <div class="flex items-center mb-4">
+          <div class="bg-blue-50 p-2 rounded-lg mr-3">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <h2 class=" text-lg font-semibold text-gray-700">Statistiques des réservations</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div>
+            <p class="text-gray-500 text-sm flex items-center">
+              <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Revenue
+            </p>
+            <p class="text-xl font-semibold mt-1">{{dataRes.revenuTotal}}</p>
+          </div>
+          <div>
+            <p class="text-gray-500 text-sm flex items-center">
+              <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              Gains moyen
+            </p>
+            <p class="text-xl font-semibold mt-1">{{dataRes.gainMoyen}}</p>
+          </div>
+        </div>
+        <div class=" animate__animated animate__fadeInUp flex space-x-2 overflow-x-auto pb-2">
+      <span (click)="fetchData(1)"  class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-blue-500    px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm flex items-center">
+        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Jan
+      </span>
+          <!-- Répéter pour les autres mois avec différentes couleurs -->
+          <span (click)="fetchData(2)"  class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-green-500 px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm">Fév</span>
+          <span (click)="fetchData(3)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-yellow-500 px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full text-sm">Mar</span>
+          <span (click)="fetchData(4)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-red-500 px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm">Avr</span>
+          <span (click)="fetchData(5)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-purple-500 px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Mai</span>
+          <span (click)="fetchData(6)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-pink-500 px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-sm">Jun</span>
+          <span (click)="fetchData(7)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-indigo-500 px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm">Jul</span>
+          <span (click)="fetchData(8)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-blue-500 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">Aoû</span>
+          <span (click)="fetchData(9)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-green-500 px-3 py-1 bg-green-50 text-green-600 rounded-full text-sm">Sep</span>
+          <span (click)="fetchData(10)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-yellow-500 px-3 py-1 bg-yellow-50 text-yellow-600 rounded-full text-sm">Oct</span>
+          <span (click)="fetchData(11)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-red-500 px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm">Nov</span>
+          <span (click)="fetchData(12)" class=" hover:translate-x-1 hover:drop-shadow-lg hover:shadow-gray-500 hover:text-white hover:bg-purple-500 px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm">Déc</span>
+        </div>
+      </div>
+      <div class="animate__animated animate__fadeInRight bg-white rounded-2xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-shadow">
+        <div class="flex items-center mb-4">
+          <div class="bg-blue-50 p-2 rounded-lg mr-3">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-gray-700">Voyages disponibles</h2>
+        </div>
+        <div class="flex items-end justify-between">
+          <div>
+            <p class="text-2xl font-bold text-gray-900 mb-2">{{nbrVolDispo}}</p>
+            <div class="flex items-center text-green-500">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              </svg>
+              <span class="text-sm">15 nouvelles offres cette semaine</span>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+      <span class="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs flex items-center">
+        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Vols
+      </span>
+            <span class="px-2 py-1 bg-green-50 text-green-600 rounded-full text-xs flex items-center">
+        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v10a2 2 0 002 2h6M8 7V3m8 4V3m-9 8h10" />
+        </svg>
+        Hôtels
+      </span>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-100">
+          <div class="flex justify-between text-sm text-gray-500">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              <span>124 offres premium</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 mr-1 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              <span>32 promotions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carte : Suivi des paiements -->
+     
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Graphique CA -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="text-lg font-semibold mb-4">Chiffre d'affaires mensuel</h3>
+        <canvas id="caChart"></canvas>
+      </div>
+      
+      <!-- Top destinations -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="text-lg font-semibold mb-4">Top 10 destinations</h3>
+        <canvas id="destinationsChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+

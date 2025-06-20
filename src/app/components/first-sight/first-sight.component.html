@@ -1,0 +1,195 @@
+<section class="relative h-screen flex items-center ">
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center opacity-90"></div>
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+  <div class="container mx-auto px-6 z-10">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6">Explorez le monde avec nous</h1>
+      <p class="text-xl text-white mb-8">Découvrez des expériences uniques et des destinations exceptionnelles avec notre agence de voyage d'élite.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section Destinations -->
+<section class="py-20 bg-secondary">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-heading font-bold text-primary mb-4">Nos Destinations Phares</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Découvrez nos destinations les plus populaires à travers le monde</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Destination 1 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paris" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-3">
+            <h3 class="text-xl font-bold">Paris, France</h3>
+            <span class="bg-primary text-white text-sm px-3 py-1 rounded-full">Nouveau</span>
+          </div>
+          <p class="text-gray-600 mb-4">La ville de l'amour et des lumières, un incontournable.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-primary font-bold">À partir de 499€</span>
+            <button class="text-primary hover:text-red-800 font-medium">Détails</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destination 2 - Bali -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        <!-- Nouvelle image de Bali plus typique -->
+        <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+             alt="Plage de Bali avec cocotiers"
+             class="w-full h-64 object-cover object-center">
+
+        <div class="p-6">
+          <!-- Titre avec icône -->
+          <div class="flex items-center mb-3">
+            <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <h3 class="text-xl font-bold text-gray-800">Bali, Indonésie</h3>
+          </div>
+
+          <!-- Description améliorée -->
+          <p class="text-gray-600 mb-4 italic">"L'île des dieux, entre rizières en terrasses et plages de sable fin"</p>
+
+          <!-- Prix et bouton avec effets -->
+          <div class="flex justify-between items-center border-t pt-4">
+            <div>
+              <span class="text-sm text-gray-500">À partir de</span>
+              <span class="block text-primary font-bold text-xl">1 299€</span>
+            </div>
+            <button class="bg-primary/10 text-primary px-4 py-2 rounded-md hover:bg-primary hover:text-white transition-colors duration-300 flex items-center">
+              Détails
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destination 3 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="New York" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3">New York, USA</h3>
+          <p class="text-gray-600 mb-4">La ville qui ne dort jamais, pleine d'énergie.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-primary font-bold">À partir de 899€</span>
+            <button class="text-primary hover:text-red-800 font-medium">Détails</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <button (click)="askForConnexion()" class="border-2 border-primary text-primary px-8 py-3 rounded-md text-lg  bg-primary    transition">
+        Voir toutes les destinations
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-20 bg-gradient-to-b from-blue-50 to-blue-100">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <span class="text-black bg-clip-text bg-gradient-to-r from-primary to-blue-600">Nos Promotions Exclusives</span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Profitez de nos offres spéciales pour des vacances inoubliables</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Promotion 1 -->
+      <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+        <div class="absolute top-4 left-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full z-10">
+          -30%
+        </div>
+        <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Séjour à Rome</h3>
+          <p class="text-gray-600 mb-4">5 jours/4 nuits avec visite guidée incluse</p>
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="text-gray-400 line-through">1200€</span>
+              <p class="text-3xl font-bold text-primary">840€</p>
+            </div>
+            <button (click)="askForConnexion()" class="px-6 py-2 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg font-medium transition-all hover:from-blue-600 hover:to-primary hover:shadow-md">
+              Réserver
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotion 2 -->
+      <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+        <div class="absolute top-4 left-4 bg-amber-500 text-white text-sm font-bold px-3 py-1 rounded-full z-10">
+          -25%
+        </div>
+        <div class="h-48 bg-gradient-to-r from-amber-400 to-amber-600"></div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Croisière Caraïbes</h3>
+          <p class="text-gray-600 mb-4">8 jours/7 nuits tout compris</p>
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="text-gray-400 line-through">1800€</span>
+              <p class="text-3xl font-bold text-amber-600">1350€</p>
+            </div>
+            <button (click)="askForConnexion()" class="px-6 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-lg font-medium transition-all hover:from-amber-600 hover:to-amber-500 hover:shadow-md">
+              Réserver
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotion 3 (New) -->
+      <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+        <div class="absolute top-4 left-4 bg-emerald-500 text-white text-sm font-bold px-3 py-1 rounded-full z-10">
+          -15%
+        </div>
+        <div class="h-48 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Safari Tanzanie</h3>
+          <p class="text-gray-600 mb-4">10 jours/9 nuits avec guide francophone</p>
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="text-gray-400 line-through">2500€</span>
+              <p class="text-3xl font-bold text-emerald-600">2125€</p>
+            </div>
+            <button class="px-6 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg font-medium transition-all hover:from-emerald-600 hover:to-emerald-500 hover:shadow-md">
+              Réserver
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#" class="inline-block px-8 py-3 border-2 border-primary text-primary font-bold rounded-lg transition-all hover:bg-primary hover:text-white">
+        Voir toutes nos promotions →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="py-20 bg-secondary">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-heading font-bold text-primary mb-2">Abonnez-vous à notre newsletter</h2>
+        <p class="text-gray-600">Recevez nos meilleures offres et actualités directement dans votre boîte mail</p>
+      </div>
+      <form class="flex flex-col md:flex-row gap-4">
+        <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-md  bg-red-800 transition">
+          S'abonner
+        </button>
+      </form>
+    </div>
+  </div>
+</section>-->

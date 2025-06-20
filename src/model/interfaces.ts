@@ -6,6 +6,12 @@ export interface  Voyage{
   departVoyage : string ,
   arriveVoyage : string ,
   dateVoyage : string ,
+  nbrPlaceDisponible : number
+}
+
+
+export function trierListeString(liste: string[]): string[] {
+  return [...liste].sort((a, b) => a.localeCompare(b));
 }
 
 
@@ -52,7 +58,8 @@ export interface   Ticket{
 export interface VIEW  {
 
   name : string ,
-  isSelected : boolean ;
+  isSelected : boolean  ,
+  authority :  string[]
 
 
 }
@@ -79,17 +86,40 @@ export function validatorPassword(password : string) : string{
 export interface Reservation{
     idReservation : number  ,
     idClient : number  ,
+    mailAgentAssocie : string ,
+    idAgent : string ,
     idVoyage  :  number  ,
     idTypeBillet  :  number  ,
-    libelleTypeBillet  :  number  ,
+    libelleTypeBillet  :   string  ,
+    nomAgent : string ,
+    prenomAgent : string ,
     libelleVoyage : string,
     nomClient : string ,
+
     depart : string  ,
     arrivee : string ,
     prenomClient  : string,
     mailClient  : string,
     dateReservation : string ,
     nbrPlace : number ,
+    status : string ,
+    montant  : number ,
+    telClient  : string ;
+    telAgent : string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
@@ -114,7 +144,7 @@ export interface loginRequest{
 export function numberToDate (timestamp: number): string {
   const date = new Date(timestamp * 1000);
   return date.toISOString().split('T')[0]; // YYYY-MM-DD
-};
+}
 
 
 
@@ -123,5 +153,49 @@ export function dateToNumber(time : string):number{
   const timestamp = Math.floor(date.getTime() / 1000);
   return timestamp ;
 }
+
+export const ROLE_PERMISSIONS = {
+  admin: ['dashboard', 'clients', 'agents', 'reservation', 'billet', 'paiement'],
+  agent: ['dashboard', 'voyage', 'clients', 'reservation'],
+  client: ['dashboard', 'voyage', 'reservation', 'paiement']
+};
+
+
+
+export interface Paiement{
+  codePaiement :string  ,
+
+  idReservation  : number;
+
+  idAgent : number ;
+  nomAgent : string ;
+
+  montant  :number ;
+  libelleVoyage:number ;
+  libelleTypeBillet :string ;
+  datePaiement  : string,
+  idClient : number  ,
+  mailAgentAssocie : string ,
+  idVoyage  :  number  ,
+  idTypeBillet  :  number  ,
+  prenomAgent : string ,
+  nomClient : string ,
+  depart : string  ,
+  arrivee : string ,
+  prenomClient  : string,
+  mailClient  : string,
+  dateReservation : string ,
+  nbrPlace : number ,
+  status : string ,
+  telClient  : string ;
+  telAgent : string ,
+  dateVoyage : string
+
+
+}
+
+
+
+
 
 

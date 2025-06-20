@@ -1,0 +1,405 @@
+<div style="margin-left: 20%; margin-top: 5%; width: 95%" class=" animate__animated animate__fadeIn bg-fixed">
+  <div class="p-4 border-2 w-full h-full border-gray-200 rounded-lg">
+    <div class="grid grid-cols-3 gap-6">
+      <!-- Card 1 : Réservations effectuées -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+        <div class="flex items-center mb-3">
+          <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          <h3 class="text-lg font-semibold text-gray-800">Réservations effectuées</h3>
+        </div>
+        <p class="text-3xl font-bold mb-2">{{nbrReservation}}</p>
+        <div class="flex items-center text-sm text-green-500">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+          +10% par rapport au mois dernier
+        </div>
+      </div>
+
+      <!-- Card 2 : Destinations populaires -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+        <div class="flex items-center mb-3">
+          <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <h3 class="text-lg font-semibold text-gray-800">Destinations populaires</h3>
+        </div>
+        <p class="text-2xl font-bold mb-2">Bali, Paris, Tokyo</p>
+        <div class="flex items-center text-sm text-blue-500">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          Top 3 cette semaine
+        </div>
+      </div>
+
+
+
+      <!-- Card 3 : Voyages récents -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+        <div class="flex items-center mb-3">
+          <svg class="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <h3 class="text-lg font-semibold text-gray-800">Voyages récents</h3>
+        </div>
+        <p class="text-3xl font-bold mb-2"> {{recents}}</p>
+        <div class="flex items-center text-sm text-gray-500">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Nombre de voyages réservés cette semaine
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <form [formGroup]="formVoyage" class="w-full p-9 bg-white mt-20 rounded-3xl drop-shadow-2xl shadow-gray-500">
+      <!-- En-tête du formulaire -->
+      <div class="opa w-full flex justify-center mb-4">
+    <span class="text-gray-600 text-xl font-semibold flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+      FORMULAIRE D'ENREGISTREMENT
+    </span>
+      </div>
+      <hr class="border-gray-300 mb-6">
+
+      <!-- Grille des champs -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Champ Départ -->
+        <div class="relative z-0 w-full mb-5 group">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-blue-600 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <input
+              type="text"
+              id="depart"
+              formControlName="departVoyage"
+              class="font-semibold block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 peer"
+              placeholder=" " />
+          </div>
+          <label for="depart" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Point de départ
+          </label>
+          @if(formVoyage.controls.departVoyage.invalid && formVoyage.controls.departVoyage.dirty){
+            <div class="flex items-center mt-1 text-red-600">
+              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm">Ce champ est invalide</span>
+            </div>
+          }
+        </div>
+
+        <!-- Champ Arrivée -->
+        <div class="relative z-0 w-full mb-5 group">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-blue-600 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <input
+              type="text"
+              id="arrive"
+              formControlName="arriveVoyage"
+              class="font-semibold block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 peer"
+              placeholder=" " />
+          </div>
+          <label for="arrive" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Point d'arrivée
+          </label>
+          @if(formVoyage.controls.arriveVoyage.invalid && formVoyage.controls.arriveVoyage.dirty){
+            <div class="flex items-center mt-1 text-red-600">
+              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm">Ce champ est invalide</span>
+            </div>
+          }
+        </div>
+
+        <!-- Champ Date -->
+        <div class="relative z-0 w-full mb-5 group">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-blue-600 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <input
+              type="date"
+              id="date"
+              formControlName="dateVoyage"
+              class="font-semibold block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 peer"
+              placeholder=" " />
+          </div>
+          <label for="date" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Date du voyage
+          </label>
+        </div>
+
+        <!-- Champ Nombre de places disponibles -->
+        <div class="relative z-0 w-full mb-5 group">
+          <div class="flex items-center border-b-2 border-gray-300 focus-within:border-blue-600 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <input
+              type="number"
+              id="places"
+              formControlName="nbrPlaceDisponible"
+              min="1"
+              class="font-semibold block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 appearance-none focus:outline-none focus:ring-0 peer"
+              placeholder=" " />
+          </div>
+          <label for="places" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            Places disponibles
+          </label>
+          @if(formVoyage.controls.nbrPlaceDisponible.invalid && formVoyage.controls.nbrPlaceDisponible.dirty){
+            <div class="flex items-center mt-1 text-red-600">
+              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm">Doit être supérieur à 0</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Bouton de soumission -->
+      <div class="flex justify-end mt-8">
+        <button
+          [ngClass]="{
+        'bg-gray-400 cursor-not-allowed': checkForm(),
+        'bg-blue-600 hover:bg-blue-700': !checkForm()
+      }"
+          type="submit"
+          [disabled]="checkForm()"
+          (click)="create()"
+          class="text-white font-medium rounded-lg text-sm px-5 py-2.5 flex items-center transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          Enregistrer
+        </button>
+      </div>
+
+      <!-- Message d'avertissement -->
+      @if(sameValue()){
+        <div class="flex items-center mt-4 p-3 bg-yellow-50 rounded-lg animate__animated animate__fadeIn">
+          <svg class="w-5 h-5 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-yellow-700 font-medium">Le point de départ et d'arrivée doivent être différents</span>
+        </div>
+      }
+    </form>
+
+
+    <div class=" w-full bg-white mt-9 rounded-lg drop-shadow-2xl shadow-gray-300 mx-auto p-4 animate__animated animate__fadeIn">
+      <div class="grid grid-cols-4 gap-x-6">
+          <!-- Sélecteur de Départ -->
+          <div class="relative">
+            <select
+              [(ngModel)]="voyageSearch.departVoyage"
+              name="depart"
+              class="w-full p-4 pl-12 rounded-xl border border-gray-200 focus:border-indigo-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition-all duration-200 shadow-sm text-gray-700 appearance-none bg-white"
+            >
+              <option value="" disabled selected>Départ...</option>
+              <option *ngFor="let ville of villesDepart" [value]="ville">{{ville}}</option>
+            </select>
+            <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+  
+          <!-- Sélecteur d'Arrivée -->
+          <div class="relative">
+            <select
+              [(ngModel)]="voyageSearch.arriveVoyage"
+              name="arrivee"
+              class="w-full p-4 pl-12 rounded-xl border border-gray-200 focus:border-indigo-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition-all duration-200 shadow-sm text-gray-700 appearance-none bg-white"
+            >
+              <option value="" disabled selected>Arrivée...</option>
+              <option *ngFor="let ville of villesArrivee" [value]="ville">{{ville}}</option>
+            </select>
+            <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+  
+      
+
+        <!-- Champ Date (inchangé) -->
+        <div class="relative">
+          <input
+            [(ngModel)]=" voyageSearch.dateVoyage"
+            name="dateVoyage"
+            type="date"
+            placeholder="Rechercher une réservation..."
+            class="w-full p-4 pl-12 rounded-xl border border-gray-200 focus:border-indigo-300 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition-all duration-200 shadow-sm text-gray-700 placeholder-gray-400"
+          >
+          <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+        <!-- Boutons (inchangés) -->
+        <div class="grid grid-cols-2">
+          <button (click)=" searchVoyage()" class="relative p-14 w-3/4 rounded-full hover:drop-shadow-gray-500 hover:drop-shadow-xl items-center justify-center px-6 py-3 bg-blue-400 hover:bg-blue-500 shadow-lg transition-all duration-300">
+            <svg class="w-5 h-5 ml-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+          <button (click)="listVoyageFunction()" class="relative p-14 w-3/4 rounded-full hover:drop-shadow-gray-500 hover:drop-shadow-xl flex items-center justify-center px-6 py-3 bg-green-400 hover:bg-green-500 shadow-lg transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
+              <path d="M444-144q-107-14-179.5-94.5T192-430q0-61 23-113.5t63-91.5l51 51q-30 29-47.5 69T264-430q0 81 51.5 140T444-217v73Zm72 0v-73q77-13 128.5-72.5T696-430q0-90-63-153t-153-63h-7l46 46-51 50-132-132 132-132 51 51-45 45h6q120 0 204 84t84 204q0 111-72.5 192T516-144Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class=" rounded-md drop-shadow-2xl shadow-gray-500 overflow-x-auto grid-cols-1 mt-12 gap-y-2">
+      @if (service.hide == "liste"){
+        <table
+          [ngClass]="{'animate__animated animate__fadeIn': service.hide =='liste'}"
+          class=" rounded-xl   font-bold text-2xl h-full w-full text-left rtl:text-right text-gray-500">
+          <thead class="    text-xl font-extrabold   text-white uppercase bg-gray-600">
+          <tr>
+            @for(e of entete ; track  e){
+              <th scope="col" class="   items-center justify-center  px-6 py-3"> {{e}}</th>
+            }
+
+          </tr>
+          </thead>
+          <tbody   >
+            @for(t of voyages  | paginate: {
+              itemsPerPage: 5,
+              currentPage: currentPage,
+              totalItems:  voyages.length};  track  t.idVoyage){
+              <tr  (click)="indexLocationFunction(t)"  class=" animate__animated animate__fadeIn odd:bg-white bg-gray-50  border-b">
+                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">{{t.idVoyage}}</th>
+                 @if(onUpdating && indexedLocation == t.idVoyage){
+
+                 <td>
+                    <input  style="width: 50%" type="text" name="depart_voyage"
+                    [(ngModel)]="voyageSelected.departVoyage"
+                    aria-describedby="helper-text-explanation"
+                    class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
+                    focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
+                 </td>
+                 <td>
+                    <input  style="width: 50%" type="text" name="arrive_voyage"
+                    [(ngModel)]="voyageSelected.arriveVoyage"
+                    aria-describedby="helper-text-explanation"
+                    class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
+                    focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
+                 </td>
+                 <td>
+                    <input  style="width: 80%" type="date" name="date_voyage"
+                    [(ngModel)]="voyageSelected.dateVoyage"
+                    aria-describedby="helper-text-explanation"
+                    class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
+                    focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
+                 </td>
+                 <td>
+                  <input  style="width: 50%" type="text" name="nbrPace"
+                  [(ngModel)]="voyageSelected.nbrPace"
+                  disabled="true"
+                  aria-describedby="helper-text-explanation"
+                  class="w-full py-3 px-4 border rounded-xl text-base focus:outline-none focus:ring-2
+                  focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"   required />
+               </td>
+
+                }@else {
+                  <td class="px-6 py-4">{{t.departVoyage}}</td>
+                  <td class="px-6 py-4">{{t.arriveVoyage}}</td>
+                  <td class="px-6 py-4"> {{t.dateVoyage}}</td>
+                  <td class=" bg-fixed justify-center px-24 py-4"> {{t.nbrPlaceDisponible}}</td>
+                }
+
+                <td class="px-6 py-2 grid  grid-cols-2 gap-3 ">
+                   @if(onUpdating && indexedLocation == t.idVoyage){
+                    <a (click)="cancelUpdate()" class="animate__animated animate__fadeIn  " >
+                       <svg  width="30px" height="30px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 128C300.8 128 128 300.8 128 512s172.8 384 384 384 384-172.8 384-384S723.2 128 512 128z m0 85.333333c66.133333 0 128 23.466667 179.2 59.733334L273.066667 691.2C236.8 640 213.333333 578.133333 213.333333 512c0-164.266667 134.4-298.666667 298.666667-298.666667z m0 597.333334c-66.133333 0-128-23.466667-179.2-59.733334l418.133333-418.133333C787.2 384 810.666667 445.866667 810.666667 512c0 164.266667-134.4 298.666667-298.666667 298.666667z" fill="#D50000"></path></g>
+                       </svg>
+                    </a>
+                      <a  (click)="modifier(t)" class="animate__animated animate__fadeIn  " >
+                      <svg  width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12.0789 3V2.25V3ZM3.67981 11.3333H2.92981H3.67981ZM3.67981 13L3.15157 13.5324C3.44398 13.8225 3.91565 13.8225 4.20805 13.5324L3.67981 13ZM5.88787 11.8657C6.18191 11.574 6.18377 11.0991 5.89203 10.8051C5.60029 10.511 5.12542 10.5092 4.83138 10.8009L5.88787 11.8657ZM2.52824 10.8009C2.2342 10.5092 1.75933 10.511 1.46759 10.8051C1.17585 11.0991 1.17772 11.574 1.47176 11.8657L2.52824 10.8009ZM18.6156 7.39279C18.8325 7.74565 19.2944 7.85585 19.6473 7.63892C20.0001 7.42199 20.1103 6.96007 19.8934 6.60721L18.6156 7.39279ZM12.0789 2.25C7.03155 2.25 2.92981 6.3112 2.92981 11.3333H4.42981C4.42981 7.15072 7.84884 3.75 12.0789 3.75V2.25ZM2.92981 11.3333L2.92981 13H4.42981L4.42981 11.3333H2.92981ZM4.20805 13.5324L5.88787 11.8657L4.83138 10.8009L3.15157 12.4676L4.20805 13.5324ZM4.20805 12.4676L2.52824 10.8009L1.47176 11.8657L3.15157 13.5324L4.20805 12.4676ZM19.8934 6.60721C18.287 3.99427 15.3873 2.25 12.0789 2.25V3.75C14.8484 3.75 17.2727 5.20845 18.6156 7.39279L19.8934 6.60721Z" fill="#0b43f9"></path> <path opacity="0.5" d="M11.8825 21V21.75V21ZM20.3137 12.6667H21.0637H20.3137ZM20.3137 11L20.8409 10.4666C20.5487 10.1778 20.0786 10.1778 19.7864 10.4666L20.3137 11ZM18.1002 12.1333C17.8056 12.4244 17.8028 12.8993 18.094 13.1939C18.3852 13.4885 18.86 13.4913 19.1546 13.2001L18.1002 12.1333ZM21.4727 13.2001C21.7673 13.4913 22.2421 13.4885 22.5333 13.1939C22.8245 12.8993 22.8217 12.4244 22.5271 12.1332L21.4727 13.2001ZM5.31769 16.6061C5.10016 16.2536 4.63806 16.1442 4.28557 16.3618C3.93307 16.5793 3.82366 17.0414 4.0412 17.3939L5.31769 16.6061ZM11.8825 21.75C16.9448 21.75 21.0637 17.6915 21.0637 12.6667H19.5637C19.5637 16.8466 16.133 20.25 11.8825 20.25V21.75ZM21.0637 12.6667V11H19.5637V12.6667H21.0637ZM19.7864 10.4666L18.1002 12.1333L19.1546 13.2001L20.8409 11.5334L19.7864 10.4666ZM19.7864 11.5334L21.4727 13.2001L22.5271 12.1332L20.8409 10.4666L19.7864 11.5334ZM4.0412 17.3939C5.65381 20.007 8.56379 21.75 11.8825 21.75V20.25C9.09999 20.25 6.6656 18.7903 5.31769 16.6061L4.0412 17.3939Z" fill="#0b43f9"></path> </g>
+                      </svg>
+                    </a>
+
+
+                  }@else{
+                    <a (click)="listenUpdate(t)" class="animate__animated animate__fadeIn  "  >
+                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#56e667"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13.9445 14.1875L9.94446 10.1875M13.9445 14.1875L8.946 19.1859C8.28735 19.8446 7.48784 20.3646 6.56993 20.5229C5.64311 20.6828 4.49294 20.736 3.94444 20.1875C3.39595 19.639 3.44915 18.4888 3.609 17.562C3.76731 16.6441 4.28735 15.8446 4.946 15.1859L9.94446 10.1875M13.9445 14.1875C13.9445 14.1875 16.9444 11.1875 14.9444 9.1875C12.9444 7.1875 9.94446 10.1875 9.94446 10.1875M3.5 12C3.5 5.5 5.5 3.5 12 3.5C18.5 3.5 20.5 5.5 20.5 12C20.5 18.5 18.5 20.5 12 20.5" stroke="#248935" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                    </svg>
+                    </a>
+                    <a   (click)="deleteVoyage(t.idVoyage)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+
+                       <svg class="animate__animated animate__fadeIn  " width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 5H18M9 5V5C10.5769 3.16026 13.4231 3.16026 15 5V5M9 20H15C16.1046 20 17 19.1046 17 18V9C17 8.44772 16.5523 8 16 8H8C7.44772 8 7 8.44772 7 9V18C7 19.1046 7.89543 20 9 20Z" stroke="#ac0202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                      </svg>
+                    </a>
+
+
+                  }
+
+                </td>
+              </tr>
+            }
+
+
+          </tbody>
+
+
+        </table>
+        @if( voyages.length == 0){
+          <div class="   px-96 flex justify-center items-center align-middle animate__animated animate__fadeIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="64" height="64" style="shape-rendering: auto; display: block; background: rgb(255, 255, 255);" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-linecap="round" fill="none" stroke-dasharray="50.26548245743669 50.26548245743669" stroke="#204d0d" stroke-width="2" r="32" cy="50" cx="50">
+              <animateTransform values="0 50 50;360 50 50" keyTimes="0;1" dur="1.4705882352941175s" repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+            </circle><g></g></g><!-- [ldio] generated by https://loading.io --></svg>
+          </div>
+        }
+        @if(voyages.length > 0){
+          <div class=" flex justify-center items-center w-full  ">
+            <pagination-controls
+              class="pagination-controls"
+              (pageChange)="pageChanged($event)"
+              (pageBoundsCorrection)="pageChanged($event)"
+              previousLabel="Précédant"
+              nextLabel="suivant"
+              screenReaderPaginationLabel="Pagination"
+              screenReaderPageLabel="page"
+              screenReaderCurrentLabel="You're on page"
+
+
+            >
+            </pagination-controls>
+          </div>
+
+        }
+
+      }
+
+
+
+
+    </div>
+
+
+  </div>
+</div>

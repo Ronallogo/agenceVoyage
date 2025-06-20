@@ -4,11 +4,14 @@
 
 
 
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@200&display=swap');
 @import "animate.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 
 
@@ -87,6 +90,8 @@ html{
   scroll-behavior: smooth;
 }
 
+
+/* From Uiverse.io by barisdogansutcu */
 
 
 
