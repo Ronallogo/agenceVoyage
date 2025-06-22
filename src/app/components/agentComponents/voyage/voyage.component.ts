@@ -125,6 +125,7 @@ export class VoyageComponent  implements  OnInit{
       this.getData() ; 
       this.getNbrReservation();
       this.recentVoyagesFunction();
+      this.voyageTop3();
   }
 
   modifier(t: Voyage) {
@@ -240,9 +241,11 @@ export class VoyageComponent  implements  OnInit{
      
   }
 
+  
+
   getNbrReservation(){
     this.service.allReservation().subscribe(data=>{
-        console.log(data);
+    
         this.nbrReservation = data.length
     })
   }
@@ -255,8 +258,8 @@ export class VoyageComponent  implements  OnInit{
 
   voyageTop3(){
     this.service.voyageTop3().subscribe(data=>{
-      
-    })
+        console.log(data);
+    } , err=> console.log(err.error));
   }
 
 
