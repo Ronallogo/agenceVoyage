@@ -119,9 +119,9 @@ export class DashbordComponent implements  OnInit{
 
    paiementRecentFunction(){
       this.service.paiementRecent().subscribe(data=>{
-          this.paiementRecent = data.value ;
+          this.paiementRecent =  parseFloat(data.value).toFixed(2);
           console.log(this.paiementRecent)
-          parseFloat(this.paiementRecent).toFixed(2)
+         
       } , err=> console.log(err)) ;
    }
 

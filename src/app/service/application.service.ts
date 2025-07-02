@@ -11,7 +11,7 @@ import { resourceUsage } from 'process';
 })
 export class ApplicationService {
 
-   public listeVoyage : Voyage[] = [] ;
+  public listeVoyage : Voyage[] = [] ;
   public listeTypeBillet :Ticket[] =  [] ;
   public listeClient : Client_2[] = [] ;
   public listePaiement : any[] = [] ;
@@ -91,6 +91,10 @@ export class ApplicationService {
   voyageDisponible():Observable<any>{
       return  this.http.get(this.BaseUrl+"voyage/available") ;
   }
+
+   
+
+
 
   listVoyage():Observable<any>{
     return this.http.get("http://localhost:8081/tg/voyage_pro/reservation/auth/voyage/getAll");
@@ -342,6 +346,13 @@ export class ApplicationService {
   reservation_average():Observable<any>{
     return this.http.get(this.BaseUrl+"reservation/reservationRecentePourcentage")  ;
 
+  }
+  tauxAnnulation():Observable<any>{
+    return this.http.get(this.BaseUrl+"reservation/tauxAnnulation") ; 
+  }
+
+  revenuMoyen():Observable<any>{
+    return this.http.get(this.BaseUrl+"reservation/revenuMoyen") ; 
   }
   newEarnAverageReservation():Observable<any>{
     return this.http.get(this.BaseUrl+"reservation/newEarnPourcentage")  ;

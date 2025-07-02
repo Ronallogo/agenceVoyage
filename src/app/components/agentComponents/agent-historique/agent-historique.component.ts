@@ -12,10 +12,10 @@ import {HistoriquesPaiementsComponent} from "../../historiques-paiements/histori
 @Component({
   selector: 'app-agent-historique',
   imports: [
-    HistoriqueReservationEffectueComponent,
+  
     HistoriqueReservationEnCoursComponent,
     HistoriqueAnnulationsComponent,
-    HistoriquesPaiementsComponent
+    
   ],
   templateUrl: './agent-historique.component.html',
   standalone: true,

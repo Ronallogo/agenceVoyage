@@ -19,6 +19,9 @@ import {_confirmation, _makeSure, _warning} from "../../../notification/notifica
 })
 export class PaiementComponent  implements OnInit{
 
+
+  protected reservations = 0 ; 
+  protected gains = 0 ; 
   protected paiements : Paiement[] =[] ;
   protected reservationResearch =  {
     depart :  "" ,
@@ -43,16 +46,19 @@ export class PaiementComponent  implements OnInit{
       {
 
 
-
+        reservation : this.service.allReservation() , 
         departs : this.service.allDepartDispo(),
-        arrivees : this.service.allArriveDispo()
+        arrivees : this.service.allArriveDispo() , 
+        gains : this.service.gainTotal()
       }
     ).subscribe(
       {
         next :({
 
                  departs ,
-                 arrivees
+                 arrivees , 
+                 reservation , 
+                 gains
 
                })=>{
 
@@ -61,6 +67,9 @@ export class PaiementComponent  implements OnInit{
           this.villesArrivee  = trierListeString(arrivees as string[]) ;
 
           console.log(this.villesArrivee);
+          this.reservations = reservation.length ; 
+          this.gains = gains.gaintotal ; 
+          console.log(gains);
 
         }})
   }
@@ -89,7 +98,7 @@ export class PaiementComponent  implements OnInit{
       this.service.researchPaiement({
         depart :  this.reservationResearch.depart ,
         arrivee : this.reservationResearch.arrivee ,
-         dateVoyage: this.reservationResearch.dateReservation
+        dateVoyage: this.reservationResearch.dateReservation
 
       }).subscribe(data=>{
           this.paiements = data ;

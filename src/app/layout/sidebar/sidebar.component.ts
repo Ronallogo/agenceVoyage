@@ -13,7 +13,7 @@ import {IndexedDbService} from "../../service/indexed-db.service";
     NgClass,
     RouterLinkActive,
     RouterLink,
-    NgIf,
+   
 
 
   ],
@@ -86,11 +86,17 @@ export class SidebarComponent  implements OnInit{
 
  async ngOnInit(): Promise<void> {
 
-   this.service.user = await this.db.getUser();
+ try {  
+
+  this.service.user = await this.db.getUser();
+  setTimeout(()=>{
+    this.loading = true ;
+ } ,  1000)
+ } catch (error) {
+    console.log("servser reload!! op : 0") ; 
+ }
    console.log(this.service.user) ;
-   setTimeout(()=>{
-      this.loading = true ;
-   } , 2000)
+  
 
  }
 
@@ -124,7 +130,12 @@ export class SidebarComponent  implements OnInit{
     let response= await  _makeSure("Voulez-vous vous déconnecter?") ;
     if(!response) return ;
 
-    await this.db.deleteUser(String(0)) ;
+    try {
+      await this.db.deleteUser(String(0)) ;
+    } catch (error) {
+      console.log("server reload!!  op : 1")
+      
+    }
 
     await this.router.navigate(['/home/first-sight']) ;
 

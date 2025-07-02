@@ -24,6 +24,9 @@ import { response } from 'express';
 })
 export class ClientComponent implements  OnInit{
 
+  protected nbrClient : number = 0 ; 
+  protected newEarnPourcentage = "0" ; 
+
   protected formClient = new FormGroup({
     nomClient : new FormControl("" , [Validators.required , Validators.maxLength(3)]) ,
     sexeClient : new FormControl("" , [Validators.required , Validators.maxLength(1)]) ,
@@ -45,6 +48,7 @@ export class ClientComponent implements  OnInit{
     mailClient : ""
 
   };
+  protected nbrPaiement = 0 ; 
   indexedLocation  :  number = 0 ;
 
 
@@ -77,12 +81,15 @@ export class ClientComponent implements  OnInit{
 
     this.service.getAllClient().subscribe(data=>{
       this.clients = data ;
+      this.nbrClient = this.clients.length
       console.log(data) ;
     } , error=>{
       console.log(error) ;
       _error("Une erreur est survenu");
 
-    })
+    }) ;
+
+    this.nbrPaiementFonction();
 
   }
 
@@ -96,13 +103,16 @@ export class ClientComponent implements  OnInit{
 
   ngOnInit(): void {
     this.listClient() ;
+    this.nbrPaiementFonction();
+    this.newEarnPourcentageFunction();
 
   }
 
 
   listClient(){
       this.service.getAllClient().subscribe(data=>{
-          this.clients  = data ;
+        this.clients  = data ;
+        this.nbrClient = this.clients.length
       } , err=>{
         console.log(err);
       })
@@ -171,4 +181,19 @@ export class ClientComponent implements  OnInit{
   cancelUpdate(){
     this.onUpdating = !this.onUpdating;
   }
+
+
+  nbrPaiementFonction(){
+      this.service.getAllPaiement().subscribe(data=>{
+          this.nbrPaiement = data.length
+      })
+  }
+
+  newEarnPourcentageFunction(){
+    this.service.newEarnAverageReservation().subscribe(data=>{
+        console.log(data) ; 
+        this.newEarnPourcentage = parseFloat(data.pourcentvalue).toFixed(2) ; 
+        
+    } , err=> console.log(err));
+ }
 }

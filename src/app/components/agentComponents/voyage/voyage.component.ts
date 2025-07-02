@@ -36,6 +36,7 @@ export class VoyageComponent  implements  OnInit{
   protected recents    = 0 ; 
 
   protected nbrReservation = 0 ; 
+  protected listTop3   : string[] = []
 
 
 
@@ -258,7 +259,7 @@ export class VoyageComponent  implements  OnInit{
 
   voyageTop3(){
     this.service.voyageTop3().subscribe(data=>{
-        console.log(data);
+         this.listTop3 = data ; 
     } , err=> console.log(err.error));
   }
 

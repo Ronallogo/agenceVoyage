@@ -6,6 +6,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import { Agent_1, samePassword, validatorPassword } from '../../../../model/interfaces';
 import { _confirmation, _error, _makeSure, _warning } from '../../../notification/notification';
 import { NgClass } from '@angular/common';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-agent',
@@ -15,6 +16,10 @@ import { NgClass } from '@angular/common';
   styleUrl: './agent.component.css'
 })
 export class AgentComponent implements OnInit {
+
+
+  protected reservations = 0 ; 
+  protected gains = 0 ; 
 
   validatorPassword(password  : string |null){
     return  validatorPassword(String(password)).length
@@ -194,6 +199,38 @@ export class AgentComponent implements OnInit {
       );
     }
 
+
+
+    getData(){
+      forkJoin(
+        {
+  
+  
+          reservation : this.service.allReservation() , 
+          departs : this.service.allDepartDispo(),
+          arrivees : this.service.allArriveDispo() , 
+          gains : this.service.gainTotal()
+        }
+      ).subscribe(
+        {
+          next :({
+  
+                   departs ,
+                   arrivees , 
+                   reservation , 
+                   gains
+  
+                 })=>{
+  
+  
+           
+             
+            this.reservations = reservation.length ; 
+            this.gains = gains.gaintotal ; 
+            console.log(gains);
+  
+          }})
+    }
 
 
 

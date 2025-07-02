@@ -14,12 +14,10 @@ import {
 @Component({
   selector: 'app-client-historique',
   imports: [
-    RouterOutlet,
-    ClientPaiementComponent,
-    HistoriquesPaiementsComponent,
+   
     HistoriqueAnnulationsComponent,
     HistoriqueReservationEnCoursComponent,
-    HistoriqueReservationEffectueComponent
+    
   ],
   templateUrl: './client-historique.component.html',
   standalone: true,

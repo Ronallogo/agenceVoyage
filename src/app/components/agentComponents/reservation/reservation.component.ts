@@ -31,18 +31,23 @@ import { _confirmation, _makeSure, _warning } from '../../../notification/notifi
 export class ReservationComponent  implements OnInit{
 
   protected role : string = "" ;
-async supprimerReservation(arg0: number) {
+  protected revenuMoyen = "0" ; 
+  protected tauxAnnulation = "0" ; 
 
-  let response = await _makeSure("Voulez-vous supprimer cette reservation??");
+  protected total = 0 ; 
 
-  if(!response) return ;
+  async supprimerReservation(arg0: number) {
 
-  this.service.deleteReservation(arg0).subscribe(data => {
-    _confirmation("Reservation supprimée avec succès !!!😁");
-    this.listReservation() ;
+    let response = await _makeSure("Voulez-vous supprimer cette reservation??");
 
-  })
-}
+    if(!response) return ;
+
+    this.service.deleteReservation(arg0).subscribe(data => {
+      _confirmation("Reservation supprimée avec succès !!!😁");
+      this.listReservation() ;
+
+    })
+  }
   async confirmer(arg0: number) {
     let response = await  _makeSure("Etes vous sure de vouloir confirmer la reservation??") ;
     if(!response) return ;
@@ -55,6 +60,7 @@ async supprimerReservation(arg0: number) {
 
     } , err=> console.log(err));
   }
+
 
 
 
@@ -105,25 +111,30 @@ async supprimerReservation(arg0: number) {
   forkJoin(
   {
 
-
-
+  taux_annulation : this.service.tauxAnnulation() , 
+  revenu_average : this.service.revenuMoyen(),
   departs : this.service.allDepartDispo(),
-  arrivees : this.service.allArriveDispo()
+  arrivees : this.service.allArriveDispo() ,
+  
   }
   ).subscribe(
   {
   next :({
 
           departs ,
-          arrivees
+          arrivees , 
+          revenu_average , 
+          taux_annulation
 
         })=>{
 
 
     this.villesDepart = trierListeString(departs as string[]) ;
     this.villesArrivee  = trierListeString(arrivees as string[]) ;
-
-    console.log(this.villesArrivee);
+    this.revenuMoyen = parseFloat(revenu_average.value).toFixed(1);
+    this.tauxAnnulation = parseFloat(taux_annulation.value).toFixed(1);
+    
+    
 
   }})
   }
@@ -132,22 +143,23 @@ async supprimerReservation(arg0: number) {
   listReservation(){
     this.service.allReservation().subscribe(data=>{
       this.reservations = data ;
+      this.total = data.length ; 
 
     } , err=> console.log(err)) ;
   }
 
 
   protected reservation  = {
-  idReservation : ""  ,
-  idClient : ""  ,
-  idVoyage  :  ""  ,
-  idTypeBillet  :  ""  ,
-  libelleTypeBillet  :  ""  ,
-  libelleVoyage : "",
-  nomClient : "" ,
-  prenomClient  : "",
-  mailClient  : "",
-  dateReservation : "" ,
+    idReservation : ""  ,
+    idClient : ""  ,
+    idVoyage  :  ""  ,
+    idTypeBillet  :  ""  ,
+    libelleTypeBillet  :  ""  ,
+    libelleVoyage : "",
+    nomClient : "" ,
+    prenomClient  : "",
+    mailClient  : "",
+    dateReservation : "" ,
   }
 
   protected formReservation = new FormGroup({
