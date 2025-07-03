@@ -20,7 +20,7 @@ export class AuthenticationService {
 
 
 
-  private BaseUrl : string = "http://localhost:8081/tg/voyage_pro/reservation/";
+  private BaseUrl : string = "https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/";
 
   constructor(private http : HttpClient) { }
 
