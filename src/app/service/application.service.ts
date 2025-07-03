@@ -37,8 +37,8 @@ export class ApplicationService {
 
 
 
-  private BaseUrl = "http://localhost:8081/tg/voyage_pro/reservation/auth/";
-  private BaseUrl2 = "http://localhost:8081/tg/voyage_pro/reservation/";
+  private BaseUrl = "https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/";
+  private BaseUrl2 = "https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/";
   hide : string = "liste" ;
 
   constructor(private http : HttpClient) { }
@@ -97,7 +97,7 @@ export class ApplicationService {
 
 
   listVoyage():Observable<any>{
-    return this.http.get("http://localhost:8081/tg/voyage_pro/reservation/auth/voyage/getAll");
+    return this.http.get("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/voyage/getAll");
   }
 
   voyageTop3():Observable<any>{
@@ -120,7 +120,7 @@ export class ApplicationService {
   ) : Observable<any>{
     console.log(depart , arrivee , dateVoyage) ;
 
-     return  this.http.put("http://localhost:8081/tg/voyage_pro/reservation/auth/voyage/client/research"  , {
+     return  this.http.put("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/voyage/client/research"  , {
 
        departVoyage : depart ,
        arriveVoyage : arrivee ,
@@ -273,11 +273,11 @@ export class ApplicationService {
    * */
   makeReservation(reservation : any) : Observable<any>{
     console.log(reservation);
-      return this.http.post( "http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/create" , reservation) ;
+      return this.http.post( "https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/create" , reservation) ;
   }
 
   deleteReservation(id : number):Observable<any>{
-      return this.http.delete(`http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/delete/${id}`);
+      return this.http.delete(`https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/delete/${id}`);
   }
 
   reservationAnnuleeForOne(email  : string):Observable<any>{
@@ -301,7 +301,7 @@ export class ApplicationService {
   }
 
   confirmation(id : number , email : string):Observable<any>{
-    return this.http.get( `http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/confirmation/${email}/${id}`) ;
+    return this.http.get( `https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/confirmation/${email}/${id}`) ;
   }
 
   reservationEnCoursForOne(email : string):Observable<any>{
@@ -325,22 +325,22 @@ export class ApplicationService {
   }
 
   getMyReservation(email : string):Observable<any>{
-      return this.http.get("http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/all/"+email) ;
+      return this.http.get("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/all/"+email) ;
   }
 
 
   researchReservationForOne(reservation : any):Observable<any>{
-    return this.http.put("http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/researchForOne" ,
+    return this.http.put("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/researchForOne" ,
       reservation) ;
   }
 
   generalResearchReservation(reservation : any):Observable<any>{
-    return this.http.put("http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/researchForOne" ,
+    return this.http.put("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/researchForOne" ,
       reservation) ;
   }
   annulation(id : number):Observable<any>{
 
-      return this.http.get("http://localhost:8081/tg/voyage_pro/reservation/auth/reservation/annulation/"+id) ;
+      return this.http.get("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/annulation/"+id) ;
   }
 
   reservation_average():Observable<any>{
