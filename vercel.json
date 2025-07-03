@@ -1,16 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "dist/agence-voyage/browser/**/*",
-      "use": "@vercel/static"
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/$1",
-      "continue": true
+      "dest": "/$1"
     }
   ]
 }
