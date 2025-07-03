@@ -25,18 +25,27 @@ export class IndexedDbService {
       const db = await this.initDB();
       await db.put('user', user);
     }catch {
-      const db = await this.initDB();
-      await db.put('user', user);
+     // const db = await this.initDB();
+     // await db.put('user', user);
+     console.log("server running");
     }
   }
   async setRole(role :   string){
-    const db = await this.initDB();
-    await db.put('role',  role);
+      try{
+        const db = await this.initDB();
+         await db.put('role',  role);
+      }catch{
+        console.log("server running");
+      }
   }
 
   async  deleteRole(){
-    const db = await this.initDB();
-    await db.delete('role' , 0);
+      try{
+        const db = await this.initDB();
+        await db.delete('role' , 0);
+      }catch{
+          console.log("server running");
+      }
   }
 
   async getUser(  ) {
@@ -44,8 +53,9 @@ export class IndexedDbService {
       const db = await this.initDB();
       return (await db.getAll("user")).at(0);
     }catch {
-      const db = await this.initDB();
-      return (await db.getAll("user")).at(0);
+      //const db = await this.initDB();
+      //return (await db.getAll("user")).at(0);
+      console.log("server running");
     }
   }
   async getRole() {
@@ -53,17 +63,20 @@ export class IndexedDbService {
       const db = await this.initDB();
       return (await db.getAll("role")).at(0);
     }catch {
-      const db = await this.initDB();
-      return (await db.getAll("role")).at(0);
+     // const db = await this.initDB();
+     // return (await db.getAll("role")).at(0);
+      console.log("server running");
     }
+
   }
   async getAllUser( ) {
     try{
       const db = await this.initDB();
       return await db.getAll('user');
     }catch(e){
-      const db = await this.initDB();
-      return await db.getAll('user');
+     // const db = await this.initDB();
+      return "OUT";
+      console.log("server running");
     }
   }
   async getAllRole( ) {
