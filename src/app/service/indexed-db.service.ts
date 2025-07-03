@@ -64,7 +64,7 @@ export class IndexedDbService {
 
   async getUser(  ) {
     const db = await this.initDB();
-    if(db == null) return  null; 
+    if(db == null) return  undefined; 
     try{
        
       return (await db.getAll("user")).at(0);
@@ -75,7 +75,7 @@ export class IndexedDbService {
   }
   async getRole() {
     const db = await this.initDB();
-    if(db == null) return ""; 
+    if(db == null) return "out"; 
     try {
    
       return (await db.getAll("role")).at(0);
@@ -86,7 +86,7 @@ export class IndexedDbService {
   }
   async getAllUser( ) {
     const db = await this.initDB();
-    if(db == null) return ; 
+    if(db == null) return []; 
     try{
    
       return await db.getAll('user');

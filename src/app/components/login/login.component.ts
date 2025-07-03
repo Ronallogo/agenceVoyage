@@ -43,7 +43,9 @@ export class LoginComponent implements OnInit {
 
         
         await this.indexedDBService.setUser({id : 0 ,...user });
-        this.service.user = await this.indexedDBService.getUser()
+        this.indexedDBService.getUser().then(data=>{
+            this.service.user = data
+        })
 
         console.log(this.service.user);
 

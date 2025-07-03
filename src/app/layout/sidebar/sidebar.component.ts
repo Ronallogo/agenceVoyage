@@ -65,7 +65,7 @@ export class SidebarComponent  implements OnInit{
 
   getAuthority(index: number) : boolean {
     let response = false ;
-    if(this.service.user == undefined){
+    if(this.service.user !== undefined){
       let auth    =  this.VIEWS.at(index)?.authority ;
 
 
@@ -88,10 +88,10 @@ export class SidebarComponent  implements OnInit{
 
  try {  
 
-  this.service.user = await this.db.getUser();
-  setTimeout(()=>{
-    this.loading = true ;
- } ,  1000)
+    this.service.user = await this.db.getUser();
+    setTimeout(()=>{
+      this.loading = true ;
+  } ,  1000)
  } catch (error) {
     console.log("servser reload!! op : 0") ; 
  }
