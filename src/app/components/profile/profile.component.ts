@@ -72,10 +72,10 @@ export class ProfileComponent  implements   OnInit{
         this.service.user = await this.indexedDbService.getUser();
         //  this.service.user = JSON.parse(String(localStorage.getItem("user")));
         this.formUser.setValue({
-          nomUser: this.service.user.lastname || "",
-          prenomUser: this.service.user.firstname || "",
-          mailUser: this.service.user.email || "",
-          telUser: this.service.user.phone || ""
+          nomUser: this.service.user?.lastname || "",
+          prenomUser: this.service.user?.firstname || "",
+          mailUser: this.service.user?.email || "",
+          telUser: this.service.user?.phone || ""
         });
 
 
