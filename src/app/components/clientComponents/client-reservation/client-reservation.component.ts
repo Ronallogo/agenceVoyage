@@ -144,7 +144,8 @@ async payerReservation(r: Reservation) {
 
 
   getMyReservation(){
-    this.service.getMyReservation(this.service.user.email).subscribe(data=>{
+    let email = (this.service.user.email == undefined)? ""  : this.service.user.email ; 
+    this.service.getMyReservation(email).subscribe(data=>{
     this.reservations = data ;
     console.log(data);
 
