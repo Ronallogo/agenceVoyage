@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../service/authentication.service";
@@ -6,6 +6,7 @@ import {ApplicationService} from "../../service/application.service";
 import {_confirmation, _warning} from "../../notification/notification";
 import {IndexedDbService} from "../../service/indexed-db.service";
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
@@ -34,10 +35,13 @@ export class ProfileComponent  implements   OnInit{
   constructor(
     protected service  : ApplicationService ,
     protected auth : AuthenticationService ,
+    @Inject(PLATFORM_ID) private platformId: Object , 
     protected indexedDbService : IndexedDbService ){}
 
   modify(){
-    let role = this.service.user.roles[0].authority ;
+    
+    if(isPlatformBrowser(this.platformId)){
+        let role = this.service.user.roles[0].authority ;
     let current_email  =  this.service.user.email ;
     this.auth.update({
       firstname : String(this.formUser.getRawValue().prenomUser) ,
@@ -58,6 +62,8 @@ export class ProfileComponent  implements   OnInit{
         _warning("Une erreur c'est produite veuillez réessayer plutard!!") ;
        // console.log(error) ;
     })
+
+    }
   }
 
 
@@ -66,25 +72,28 @@ export class ProfileComponent  implements   OnInit{
 
 
   ngOnInit(): void {
-    this.role =  this.service?.user.roles[0].authority ;
-    try{
-      setTimeout(async () => {
-        this.service.user = await this.indexedDbService.getUser();
-        //  this.service.user = JSON.parse(String(localStorage.getItem("user")));
-        this.formUser.setValue({
-          nomUser: this.service.user?.lastname || "",
-          prenomUser: this.service.user?.firstname || "",
-          mailUser: this.service.user?.email || "",
-          telUser: this.service.user?.phone || ""
-        });
+   
+    if (isPlatformBrowser(this.platformId)) {
+        this.role =  this.service?.user.roles[0].authority ;
+        try{
+          setTimeout(async () => {
+            this.service.user = await this.indexedDbService.getUser();
+            //  this.service.user = JSON.parse(String(localStorage.getItem("user")));
+            this.formUser.setValue({
+              nomUser: this.service.user?.lastname || "",
+              prenomUser: this.service.user?.firstname || "",
+              mailUser: this.service.user?.email || "",
+              telUser: this.service.user?.phone || ""
+            });
 
 
-      }   ,2000) ;
-    }catch (e){
-        console.log("Donnée en chargement!!")
+          }   ,2000) ;
+        }catch (e){
+            console.log("Donnée en chargement!!")
+        }
+        setTimeout(()=>{
+          this.loading = true
+        } , 2000)
     }
-    setTimeout(()=>{
-      this.loading = true
-    } , 2000)
   }
 }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import { AuthenticationService } from "../../service/authentication.service";
 import { Router } from "@angular/router";
 import { ApplicationService } from "../../service/application.service";
 import { IndexedDbService } from '../../service/indexed-db.service';
-import {NgIf} from "@angular/common";
+import {isPlatformBrowser, NgIf} from "@angular/common";
 import {_error} from "../../notification/notification";
 
 @Component({
@@ -29,11 +29,14 @@ export class LoginComponent implements OnInit {
     protected service: ApplicationService,
     protected auth: AuthenticationService,
     protected router: Router,
-    private indexedDBService: IndexedDbService
+    private indexedDBService: IndexedDbService , 
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   async login() {
-    this.auth.login({
+   
+     if (isPlatformBrowser(this.platformId)) {
+           this.auth.login({
       username: this.formUser.getRawValue().username,
       password: this.formUser.getRawValue().password
     }).subscribe(async data => {
@@ -62,6 +65,9 @@ export class LoginComponent implements OnInit {
       this.errorFound = true;
      // this.indexedDBService.deleteUser('user');
     });
+     }
+
+
   }
 
   ngOnInit(): void {}
