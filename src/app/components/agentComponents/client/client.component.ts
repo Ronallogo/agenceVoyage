@@ -24,8 +24,8 @@ import { response } from 'express';
 })
 export class ClientComponent implements  OnInit{
 
-  protected nbrClient : number = 0 ; 
-  protected newEarnPourcentage = "0" ; 
+  protected nbrClient : number = 0 ;
+  protected newEarnPourcentage = "0" ;
 
   protected formClient = new FormGroup({
     nomClient : new FormControl("" , [Validators.required , Validators.maxLength(3)]) ,
@@ -48,7 +48,7 @@ export class ClientComponent implements  OnInit{
     mailClient : ""
 
   };
-  protected nbrPaiement = 0 ; 
+  protected nbrPaiement = 0 ;
   indexedLocation  :  number = 0 ;
 
 
@@ -67,7 +67,7 @@ export class ClientComponent implements  OnInit{
 
     this.service.search(this.formClient.getRawValue()).subscribe(data=>{
         this.clients = data ;
-        console.log(data);
+
 
     } , error=>{
       _error(error.error);
@@ -82,7 +82,7 @@ export class ClientComponent implements  OnInit{
     this.service.getAllClient().subscribe(data=>{
       this.clients = data ;
       this.nbrClient = this.clients.length
-      console.log(data) ;
+
     } , error=>{
       console.log(error) ;
       _error("Une erreur est survenu");
@@ -191,9 +191,9 @@ export class ClientComponent implements  OnInit{
 
   newEarnPourcentageFunction(){
     this.service.newEarnAverageReservation().subscribe(data=>{
-        console.log(data) ; 
-        this.newEarnPourcentage = parseFloat(data.pourcentvalue).toFixed(2) ; 
-        
+
+        this.newEarnPourcentage = parseFloat(data.pourcentvalue).toFixed(2) ;
+
     } , err=> console.log(err));
  }
 }

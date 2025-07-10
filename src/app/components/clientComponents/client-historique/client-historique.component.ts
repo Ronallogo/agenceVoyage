@@ -1,23 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {ApplicationService} from "../../../service/application.service";
-import {RouterOutlet} from "@angular/router";
-import {ClientPaiementComponent} from "../client-paiement/client-paiement.component";
-import {HistoriquesPaiementsComponent} from "../../historiques-paiements/historiques-paiements.component";
+
 import {HistoriqueAnnulationsComponent} from "../../historique-annulations/historique-annulations.component";
 import {
   HistoriqueReservationEnCoursComponent
 } from "../../historique-reservation-en-cours/historique-reservation-en-cours.component";
-import {
-  HistoriqueReservationEffectueComponent
-} from "../../historique-reservation-effectue/historique-reservation-effectue.component";
+
 
 @Component({
   selector: 'app-client-historique',
   imports: [
-   
+
     HistoriqueAnnulationsComponent,
     HistoriqueReservationEnCoursComponent,
-    
+
   ],
   templateUrl: './client-historique.component.html',
   standalone: true,

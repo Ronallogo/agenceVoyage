@@ -144,10 +144,11 @@ async payerReservation(r: Reservation) {
 
 
   getMyReservation(){
-    let email = (this.service.user.email == undefined)? ""  : this.service.user.email ; 
+    let email = "unknown" ;
+    if(this.service.user?.email !== undefined)  email  = this.service.user?.email ;
     this.service.getMyReservation(email).subscribe(data=>{
     this.reservations = data ;
-    console.log(data);
+
 
   } , error =>  console.log(error)) ;
   }
@@ -163,14 +164,14 @@ async payerReservation(r: Reservation) {
       return ;
     }
     this.service.researchReservationForOne(this.reservationResearch).subscribe(data => {
-      console.log(data);
+
       this.reservations = data;
     }, err => console.log(err));
   }
 
   annulationReservation(id : number){
       this.service.annulation(id).subscribe(data=>{
-            console.log(data) ;
+
             _confirmation("Annulation effectuée 😁!!") ;
             this.getData() ;
 

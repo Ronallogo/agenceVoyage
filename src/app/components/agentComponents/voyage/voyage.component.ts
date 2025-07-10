@@ -17,7 +17,7 @@ import { forkJoin } from 'rxjs';
     NgClass,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule , 
+    ReactiveFormsModule ,
     NgFor
 
   ],
@@ -33,9 +33,9 @@ export class VoyageComponent  implements  OnInit{
   protected typesBillet: Ticket[] =[] ;
   protected villesDepart: string[] = [];
   protected villesArrivee:  string[] = [];
-  protected recents    = 0 ; 
+  protected recents    = 0 ;
 
-  protected nbrReservation = 0 ; 
+  protected nbrReservation = 0 ;
   protected listTop3   : string[] = []
 
 
@@ -51,8 +51,8 @@ export class VoyageComponent  implements  OnInit{
         return ;
     }
      this.service.researhForAgent(
-         this.voyageSearch.departVoyage , 
-      this.voyageSearch.arriveVoyage , 
+         this.voyageSearch.departVoyage ,
+      this.voyageSearch.arriveVoyage ,
          this.voyageSearch.dateVoyage
      ).subscribe(data=>{
             this.voyages= data ;
@@ -67,7 +67,7 @@ export class VoyageComponent  implements  OnInit{
   protected voyageSearch  = {departVoyage : "" , arriveVoyage : "" , dateVoyage : ""}
 
   protected entete: string[] = ["No" , "point de départ" , "point d'arrivée" , "Date de départ" , "Place disponibles"  ,"Actions"];
-  
+
   currentPage: number = 0 ;
   protected  checkValue : boolean = false ;
   protected onUpdating : boolean  =   false;
@@ -104,7 +104,7 @@ export class VoyageComponent  implements  OnInit{
 
     this.service.createVoyage(this.formVoyage.getRawValue()).subscribe(data=>{
         _confirmation("voyage enregistré avec succès 😊 !! ");
-        console.log(data);
+
         this.listVoyageFunction();
     }  , err =>{
         console.log(err)
@@ -123,7 +123,7 @@ export class VoyageComponent  implements  OnInit{
 
   ngOnInit(): void {
       this.listVoyageFunction() ;
-      this.getData() ; 
+      this.getData() ;
       this.getNbrReservation();
       this.recentVoyagesFunction();
       this.voyageTop3();
@@ -135,7 +135,7 @@ export class VoyageComponent  implements  OnInit{
     t.departVoyage = this.voyageSelected.departVoyage ,
     t.dateVoyage = transformDate(this.voyageSelected.dateVoyage);
     t.nbrPlaceDisponible = this.voyageSelected.nbrPace
-    console.log(t.dateVoyage);
+
     this.service.updateVoyage(t).subscribe(data=>{
       _confirmation("voyage modifier avec succès !!") ;
       this.listVoyageFunction() ;
@@ -213,7 +213,7 @@ export class VoyageComponent  implements  OnInit{
     forkJoin(
       {
 
-        
+
         tickets : this.service.listTicket() ,
         departs : this.service.allDepart(),
         arrivees : this.service.allArrive()
@@ -223,11 +223,11 @@ export class VoyageComponent  implements  OnInit{
         next :({
 
                  tickets  ,
-               
+
                 departs ,
                 arrivees
                })=>{
-        
+
 
           this.villesDepart = trierListeString(departs as string[]) ;
           this.villesArrivee  = trierListeString(arrivees as string[]) ;
@@ -239,14 +239,14 @@ export class VoyageComponent  implements  OnInit{
 
         }}) ;
 
-     
+
   }
 
-  
+
 
   getNbrReservation(){
     this.service.allReservation().subscribe(data=>{
-    
+
         this.nbrReservation = data.length
     })
   }
@@ -259,11 +259,11 @@ export class VoyageComponent  implements  OnInit{
 
   voyageTop3(){
     this.service.voyageTop3().subscribe(data=>{
-         this.listTop3 = data ; 
+         this.listTop3 = data ;
     } , err=> console.log(err.error));
   }
 
 
-  
+
 
 }

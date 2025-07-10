@@ -67,7 +67,7 @@ export class RegisterComponent {
            this.service.user = await this.indexedDBService.getUser();
 
 
-           if (this.service.user !== undefined) {
+           if (this.service?.user !== undefined) {
              await this.router.navigate(['/user/profile']);
            }
 

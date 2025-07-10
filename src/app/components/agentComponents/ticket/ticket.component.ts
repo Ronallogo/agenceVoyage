@@ -29,9 +29,9 @@ export class TicketComponent  implements OnInit{
 
   research() {
       this.service.researchTicket(this.ticketResearch).subscribe(data=>{
-          this.tickets  = data ; 
+          this.tickets  = data ;
 
-      } , err=> console.log(err)) ; 
+      } , err=> console.log(err)) ;
   }
 
 
@@ -40,11 +40,11 @@ export class TicketComponent  implements OnInit{
 
   protected currentPage: string | number = 0;
   protected onUpdating : boolean  =   false;
-  protected view: boolean = false ; 
+  protected view: boolean = false ;
 
-  protected  ticketResearch  = "" ;  
+  protected  ticketResearch  = "" ;
 
-  protected indexedLocation !: number ; 
+  protected indexedLocation !: number ;
 
 
 
@@ -94,7 +94,7 @@ export class TicketComponent  implements OnInit{
     t.libelleTypeBillet = this.libelle ;
     t.prixTypeBillet = this.prix ;
 
-    console.log(t);
+
      this.service.updateTicket(t).subscribe(data=>{
       this.listTicket();
       _confirmation("mise à jour avec succès!!!");

@@ -62,7 +62,7 @@ export class ClientPaiementComponent implements  OnInit{
           this.villesDepart = trierListeString(departs as string[]) ;
           this.villesArrivee  = trierListeString(arrivees as string[]) ;
 
-          console.log(this.villesArrivee);
+
 
         }})
   }
@@ -71,7 +71,7 @@ export class ClientPaiementComponent implements  OnInit{
   getAllPaiements(){
     this.service.getAllPaiementForOne(this.service.user.email).subscribe(data=>{
       this.paiements = data;
-      console.log(data) ;
+
     } , error => console.log(error));
   }
 
@@ -86,7 +86,7 @@ export class ClientPaiementComponent implements  OnInit{
 
   researchForOne() {
     this.reservationResearch.mailClient = this.service.user.email
-    console.log(this.reservationResearch)
+
     this.service.researchPaiementForOne({
       depart :  this.reservationResearch.depart ,
       arrivee : this.reservationResearch.arrivee ,

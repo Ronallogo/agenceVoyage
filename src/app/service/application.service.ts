@@ -92,7 +92,7 @@ export class ApplicationService {
       return  this.http.get(this.BaseUrl+"voyage/available") ;
   }
 
-   
+
 
 
 
@@ -101,7 +101,7 @@ export class ApplicationService {
   }
 
   voyageTop3():Observable<any>{
-    return this.http.get(this.BaseUrl+"voyage/top3") ; 
+    return this.http.get(this.BaseUrl+"voyage/top3") ;
   }
 
 
@@ -201,7 +201,7 @@ export class ApplicationService {
   }
 
   researchTicket(keyword : string):Observable<any>{
-      return this.http.get(this.BaseUrl+"ticket/research/"+keyword) ; 
+      return this.http.get(this.BaseUrl+"ticket/research/"+keyword) ;
   }
   listTicket():Observable<any>{
     return this.http.get(this.BaseUrl+"ticket/getAll");
@@ -218,7 +218,7 @@ export class ApplicationService {
 
 
   research(keyword : string):Observable<any>{
-      return this.http.get(this.BaseUrl+ "/ticket/"+keyword) ; 
+      return this.http.get(this.BaseUrl+ "/ticket/"+keyword) ;
   }
   /*________________________________________________________*/
 
@@ -325,6 +325,8 @@ export class ApplicationService {
   }
 
   getMyReservation(email : string):Observable<any>{
+
+    console.log("email : "+email) ;
       return this.http.get("https://reservation-pro-latest.onrender.com/tg/voyage_pro/reservation/auth/reservation/all/"+email) ;
   }
 
@@ -348,18 +350,18 @@ export class ApplicationService {
 
   }
   tauxAnnulation():Observable<any>{
-    return this.http.get(this.BaseUrl+"reservation/tauxAnnulation") ; 
+    return this.http.get(this.BaseUrl+"reservation/tauxAnnulation") ;
   }
 
   revenuMoyen():Observable<any>{
-    return this.http.get(this.BaseUrl+"reservation/revenuMoyen") ; 
+    return this.http.get(this.BaseUrl+"reservation/revenuMoyen") ;
   }
   newEarnAverageReservation():Observable<any>{
     return this.http.get(this.BaseUrl+"reservation/newEarnPourcentage")  ;
   }
 
   gainTotal():Observable<any>{
-      return this.http.get(this.BaseUrl+"reservation/gainTotal") ; 
+      return this.http.get(this.BaseUrl+"reservation/gainTotal") ;
   }
 
 

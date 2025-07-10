@@ -18,8 +18,8 @@ import { forkJoin } from 'rxjs';
 export class AgentComponent implements OnInit {
 
 
-  protected reservations = 0 ; 
-  protected gains = 0 ; 
+  protected reservations = 0 ;
+  protected gains = 0 ;
 
   validatorPassword(password  : string |null){
     return  validatorPassword(String(password)).length
@@ -134,7 +134,7 @@ export class AgentComponent implements OnInit {
       this.service.updateAgent(a)
       . subscribe(data=>{
           _confirmation("Agent modifié avec succès !!😊") ;
-          console.log(data);
+
           this.onUpdating = !this.onUpdating;
           this.listAgent();
       } , err=>{
@@ -180,7 +180,7 @@ export class AgentComponent implements OnInit {
       .then((data)=> {
           _confirmation("Cet agent est enregisté avec succès!!!😊") ;
           this.listAgent();
-          console.log(data)
+
       })
       .catch(err=> _error("Une erreur s'est survenue : "+err))
   }
@@ -204,31 +204,31 @@ export class AgentComponent implements OnInit {
     getData(){
       forkJoin(
         {
-  
-  
-          reservation : this.service.allReservation() , 
+
+
+          reservation : this.service.allReservation() ,
           departs : this.service.allDepartDispo(),
-          arrivees : this.service.allArriveDispo() , 
+          arrivees : this.service.allArriveDispo() ,
           gains : this.service.gainTotal()
         }
       ).subscribe(
         {
           next :({
-  
+
                    departs ,
-                   arrivees , 
-                   reservation , 
+                   arrivees ,
+                   reservation ,
                    gains
-  
+
                  })=>{
-  
-  
-           
-             
-            this.reservations = reservation.length ; 
-            this.gains = gains.gaintotal ; 
-            console.log(gains);
-  
+
+
+
+
+            this.reservations = reservation.length ;
+            this.gains = gains ;
+
+
           }})
     }
 

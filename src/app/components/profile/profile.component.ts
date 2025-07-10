@@ -66,7 +66,7 @@ export class ProfileComponent  implements   OnInit{
 
 
   ngOnInit(): void {
-    this.role =  this.service.user.roles[0].authority ;
+    this.role =  this.service?.user.roles[0].authority ;
     try{
       setTimeout(async () => {
         this.service.user = await this.indexedDbService.getUser();

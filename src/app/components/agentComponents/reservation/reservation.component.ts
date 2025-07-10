@@ -31,10 +31,10 @@ import { _confirmation, _makeSure, _warning } from '../../../notification/notifi
 export class ReservationComponent  implements OnInit{
 
   protected role : string = "" ;
-  protected revenuMoyen = "0" ; 
-  protected tauxAnnulation = "0" ; 
+  protected revenuMoyen = "0" ;
+  protected tauxAnnulation = "0" ;
 
-  protected total = 0 ; 
+  protected total = 0 ;
 
   async supprimerReservation(arg0: number) {
 
@@ -86,7 +86,7 @@ export class ReservationComponent  implements OnInit{
     }
      this.service.generalResearchReservation(this.reservationResearch).subscribe(data=>{
             this.reservations = data ;
-            console.log(data)
+
 
      } , err=> console.log(err)) ;
   }
@@ -111,19 +111,19 @@ export class ReservationComponent  implements OnInit{
   forkJoin(
   {
 
-  taux_annulation : this.service.tauxAnnulation() , 
+  taux_annulation : this.service.tauxAnnulation() ,
   revenu_average : this.service.revenuMoyen(),
   departs : this.service.allDepartDispo(),
   arrivees : this.service.allArriveDispo() ,
-  
+
   }
   ).subscribe(
   {
   next :({
 
           departs ,
-          arrivees , 
-          revenu_average , 
+          arrivees ,
+          revenu_average ,
           taux_annulation
 
         })=>{
@@ -133,8 +133,8 @@ export class ReservationComponent  implements OnInit{
     this.villesArrivee  = trierListeString(arrivees as string[]) ;
     this.revenuMoyen = parseFloat(revenu_average.value).toFixed(1);
     this.tauxAnnulation = parseFloat(taux_annulation.value).toFixed(1);
-    
-    
+
+
 
   }})
   }
@@ -143,7 +143,7 @@ export class ReservationComponent  implements OnInit{
   listReservation(){
     this.service.allReservation().subscribe(data=>{
       this.reservations = data ;
-      this.total = data.length ; 
+      this.total = data.length ;
 
     } , err=> console.log(err)) ;
   }

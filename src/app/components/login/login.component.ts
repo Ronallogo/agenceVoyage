@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     protected service: ApplicationService,
     protected auth: AuthenticationService,
     protected router: Router,
-    private indexedDBService: IndexedDbService 
+    private indexedDBService: IndexedDbService
   ) {}
 
   async login() {
@@ -41,16 +41,16 @@ export class LoginComponent implements OnInit {
         this.errorFound = false;
         const user =  this.auth.getUser(data.access_token);
 
-        
+
         await this.indexedDBService.setUser({id : 0 ,...user });
         this.indexedDBService.getUser().then(data=>{
             this.service.user = data
         })
 
-        console.log(this.service.user);
+        console.log(this.service?.user);
 
 
-        if (this.service.user !== undefined) {
+        if (this.service?.user !== undefined) {
           await this.router.navigate(['/user/profile']);
         }
 

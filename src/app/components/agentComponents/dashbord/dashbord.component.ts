@@ -25,14 +25,14 @@ export class DashbordComponent implements  OnInit{
     revenuTotal  :  "" ,
     gainMoyen : ""
   }
-  protected gainTotal = "" ; 
+  protected gainTotal = "" ;
 
 
   protected recentVoyage : string = "0";
   protected paiementRecent   :  string = "0" ;
 
   protected resParClient = "" ;
-  protected newEarnPourcentage = "0" ; 
+  protected newEarnPourcentage = "0" ;
   protected nbrVolDispo  = 0 ;
 
   protected volReserver = 0 ;
@@ -112,7 +112,7 @@ export class DashbordComponent implements  OnInit{
       this.service.reservationData(mois).subscribe(data=>{
           this.dataRes.gainMoyen =  data.gainMoyen ? parseFloat(data.gainMoyen).toFixed(2) : "0"   ;
           this.dataRes.revenuTotal =  data.revenuTotal ? parseFloat( data.revenuTotal).toFixed(2) : "0"   ;
-          
+
         parseFloat(this.dataRes.gainMoyen).toFixed(2)
       } , error =>  console.log(error))
    }
@@ -120,24 +120,24 @@ export class DashbordComponent implements  OnInit{
    paiementRecentFunction(){
       this.service.paiementRecent().subscribe(data=>{
           this.paiementRecent =  parseFloat(data.value).toFixed(2);
-          console.log(this.paiementRecent)
-         
+
+
       } , err=> console.log(err)) ;
    }
 
    newEarnPourcentageFunction(){
       this.service.newEarnAverageReservation().subscribe(data=>{
-          console.log(data) ; 
-          this.newEarnPourcentage = parseFloat(data.pourcentvalue).toFixed(2) ; 
-          
+          console.log(data) ;
+          this.newEarnPourcentage = parseFloat(data.pourcentvalue).toFixed(2) ;
+
       } , err=> console.log(err));
    }
 
 
    gainTotalFunction(){
       this.service.gainTotal().subscribe(data=>{
-          console.log(data) ;
-          this.gainTotal = data.gaintotal ; 
+
+          this.gainTotal = data.gaintotal ;
 
       } , err=> console.log(err));
    }
