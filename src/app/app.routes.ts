@@ -19,7 +19,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 
 
 export const routes: Routes = [
-  { path: '/', redirectTo: 'home/first-sight', pathMatch: 'full' },
+  { path: '', redirectTo: 'home/first-sight', pathMatch: 'full' },
 
   {path : 'user' ,
     component : UserLayoutComponent ,
