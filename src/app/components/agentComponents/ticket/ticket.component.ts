@@ -8,7 +8,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {FormControl,   FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import { _confirmation, _error, _makeSure, _warning } from '../../../notification/notification';
 import { Ticket } from '../../../../model/interfaces';
-import { Tick } from 'chart.js/dist/core/core.scale';
+ 
 
 
 @Component({

@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, effect, inject, OnInit, PLATFORM_ID} from 
 import {ApplicationService} from "../../../service/application.service";
 import {forkJoin} from "rxjs";
 import {Client_2, Reservation, Ticket, Voyage} from "../../../../model/interfaces";
-import {Tick} from "chart.js/dist/core/core.scale";
+ 
 import {RouterLink, RouterLinkActive} from "@angular/router";
 
 

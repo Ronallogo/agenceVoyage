@@ -1,19 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/tailwind.css';
-@import 'animate.css';
+/* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@200&display=swap');
+@import 'tailwindcss';
+@import 'animate.css';
 
  
-
-
-
-
-
  
-@import "animate.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 
 
@@ -96,6 +88,7 @@ html{
 
 
 /* From Uiverse.io by barisdogansutcu */
+
 
 
 

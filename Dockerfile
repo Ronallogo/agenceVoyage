@@ -2,48 +2,54 @@
 
 ARG NODE_VERSION=22.13.1
 
-###############################
-# Builder stage
-###############################
+# --- Build Stage ---
 FROM node:${NODE_VERSION}-slim AS builder
 WORKDIR /app
 
-# Install dependencies (only prod for final, all for build)
+# Install dependencies (npm ci is deterministic)
 COPY --link package.json package-lock.json ./
-
 RUN --mount=type=cache,target=/root/.npm \
     npm ci
 
 # Copy the rest of the application source
 COPY --link . .
 
-# Build the Angular app (browser and server bundles)
-RUN npm run build:ssr
+# Build the Angular app (production build)
+RUN npm run build
 
-# Remove dev dependencies and install only production dependencies
-RUN --mount=type=cache,target=/root/.npm \
-    rm -rf node_modules && npm ci --omit=dev
+# Remove dev dependencies to reduce image size
+RUN npm prune --production
 
-###############################
-# Production stage
-###############################
+# --- Production Stage ---
 FROM node:${NODE_VERSION}-slim AS final
 WORKDIR /app
 
 # Create a non-root user
 RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
-# Copy built app and production dependencies from builder
+# Copy built app and production dependencies
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/server.ts ./
+COPY --from=builder /app/package*.json ./
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
+# Install 'serve' globally for static file serving as root
+
+
+# Switch back to the non-root user
+USER root
+RUN npm install -g serve
 USER appuser
 
-EXPOSE 4000
 
-CMD ["node", "dist/agence-voyage/server/server.mjs"]
+# Expose the default Angular dev server port
+EXPOSE 4200
+
+# Serve the Angular app using a simple static server (e.g., serve)
+# If you want to use Express or another server, adjust this accordingly.
+# Install 'serve' globally for static file serving
+
+
+CMD ["serve", "-s", "dist", "-l", "4200"]

@@ -1,52 +1,59 @@
-# AgenceVoyage
+# AagenceVoyageMigrated
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Build
+```bash
+ng generate component component-name
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For end-to-end (e2e) testing, run:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-## Running with Docker
-
-This project includes a Docker setup for building and running the application in a containerized environment.
-
-- **Node.js version:** 22.13.1 (as specified in the Dockerfile)
-- **Exposed port:** 4000 (SSR server)
-- **No required environment variables** are set by default, but you may uncomment the `env_file` line in `docker-compose.yml` if you wish to provide a `.env` file.
-
-### Build and Run
-
-To build and run the project using Docker Compose:
-
-```sh
-# Build and start the application
-docker compose up --build
+```bash
+ng e2e
 ```
 
-The application will be available at `http://localhost:4000/`.
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-### Notes
-- The Docker setup uses a multi-stage build for optimized image size and security.
-- The application runs as a non-root user inside the container.
-- No external dependencies or databases are required by default.
-- If you need to provide environment variables, create a `.env` file and uncomment the `env_file` line in `docker-compose.yml`.
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

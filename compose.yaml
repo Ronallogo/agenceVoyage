@@ -5,14 +5,12 @@ services:
     container_name: typescript-app
     restart: unless-stopped
     init: true
-    # env_file: ./.env  # Uncomment if .env file exists
     ports:
-      - "4000:4000"  # Exposes the SSR server as per Dockerfile and README
-    # No external dependencies detected (e.g., database, cache)
-    # Runs as non-root user as per Dockerfile
-    # No volumes needed as this is not a database or persistent service
-    # If you need to provide environment variables, create a .env file and uncomment the env_file line
+      - "4200:4200"  # Angular dev server / static server
+    # env_file: ./.env  # Uncomment if .env file exists
+    # No external dependencies detected in README or source
+    # If you add a database or other service, add it here
+    # networks can be added if more services are introduced
 
-# No external services (databases, caches, etc.) detected in the documentation or code
-# No volumes section needed as there are no persistent data requirements
-# No custom networks needed as there is only one service
+# No external services (databases, caches, etc.) detected in README or source
+# No volumes section needed as there are no persistent data services
